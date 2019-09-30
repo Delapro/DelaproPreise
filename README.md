@@ -5,6 +5,7 @@ Routinen für BEL-II Preise, zum Importieren, Exportieren und Preisupdates erste
 relevante Links:
 * [Bundesmittelpreise 2014-2019](https://www.gkv-spitzenverband.de/krankenversicherung/zahnaerztliche_versorgung/zahntechniker/zahntechniker.jsp)
 * [Alternative Quelle zu Bundesmittelpreisen](https://www.aok-gesundheitspartner.de/plus/zahnmedizin/zahntechnik/vertraege/index.html)
+* [Gemeinsamer Bundesausschuss Übersichtsseite zur Zahntechnik](https://www.g-ba.de/beschluesse/zum-aufgabenbereich/45/)
 * [Gemeinsamer Bundesausschuss zur Änderung der Beträge zur Festzuschuss-Richtlinie (erklärt die Hintergründe der Preisermittlung)](https://www.g-ba.de/downloads/40-268-5332/2018-09-28_FZ-RL%20Anpassung-Betraege_01-01-2019_TrG.pdf)
 * [Grundlohn-Veränderungsrate der beitragspflichtigen Einnahmen, Übersicht verschiedene Jahre](https://www.gkv-spitzenverband.de/krankenversicherung/krankenhaeuser/budgetverhandlungen/gl_veraenderungsrate/gl_veraenderungsrate.jsp)
 * [Schreiben BMG Veränderungsrate für 2019](https://www.gkv-spitzenverband.de/media/dokumente/krankenversicherung_1/krankenhaeuser/budgetverhandlungen/gl_veraenderungsrate/KH_GL_Veraenderungsrate_2019.pdf)

@@ -10,3 +10,7 @@ relevante Links:
 * [Grundlohn-Veränderungsrate der beitragspflichtigen Einnahmen, Übersicht verschiedene Jahre](https://www.gkv-spitzenverband.de/krankenversicherung/krankenhaeuser/budgetverhandlungen/gl_veraenderungsrate/gl_veraenderungsrate.jsp)
 * [Schreiben BMG Veränderungsrate für 2019](https://www.gkv-spitzenverband.de/media/dokumente/krankenversicherung_1/krankenhaeuser/budgetverhandlungen/gl_veraenderungsrate/KH_GL_Veraenderungsrate_2019.pdf)
 * [Schreiben BMG Veränderungsrate für 2020](https://www.bundesgesundheitsministerium.de/fileadmin/Dateien/3_Downloads/Statistiken/GKV/Kennzahlen_Daten/19Sep13_Bekanntmachung_Internet_2019.pdf)
+
+## Preise der einzelnen Bundesländer
+
+* [VDDS CSV-Datei Strukturbeschreibung mit Links zu CSV-Dateien aus den einzelnen KZVen](https://www.vdds.de/schnittstellen/labor-preise/)

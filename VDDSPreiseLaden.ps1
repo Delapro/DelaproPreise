@@ -103,6 +103,7 @@ $saPreise|Out-GridView
 $VDDSHeaderConvert = @('Kürzel','Nr','Bezeichnung','Kassenart',@{N='PreisGewerbeLabor';E={[decimal]$_.PreisGewerbeLabor.replace(',','.')}})
 $saPNeu = $saPreise| select -Property $VDDSHeaderConvert
 
+$saPNeu| measure -Property preisgewerbelabor -AllStats
 
 # Nordrhein Praxispreise: https://www.kzvnr.de/medien/PDFs/Zahn%C3%A4rzteseite/BEL-Listen_II__Zahnersatz_/BEL_II_ab_01.01.2020.csv
 

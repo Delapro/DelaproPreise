@@ -59,7 +59,7 @@ class KZVen {
         # alte Preise 2019 RPF: https://www.kzvrlp.de/fileadmin/KZV/Downloads/Mitglieder/Abrechnung/Aktuelles/BEL-Preise/06la0119.csv
         $this.KZV[11] = [KZV]::new('Rheinland-Pfalz', 'RhPf', '06', 'https://www.kzv-rheinlandpfalz.de/', 'https://www.kzvrlp.de/mitglieder/abrechnung/bel-ii/', 'https://www.kzvrlp.de/fileadmin/KZV/Downloads/Mitglieder/Abrechnung/Aktuelles/BEL-Preise/06la0120.csv', 'https://www.kzvrlp.de/index.php?eID=tx_securedownloads&p=256&u=0&g=0&t=1579339965&hash=7263f05c3c30c30ec966430fc46de459d006977e&file=fileadmin/KZV/Downloads/Mitglieder/Abrechnung/Aktuelles/BEL-Preise/Kurzfassung_BEL_Preise_01.01.2020.pdf')
         $this.KZV[12] = [KZV]::new('Saarland', 'Saar', '35', 'https://www.zahnaerzte-saarland.de', '', '')
-        $this.KZV[13] = [KZV]::new('Sachsen', 'Sach', '56', 'http://www.zahnaerzte-in-sachsen.de/', '', '')
+        $this.KZV[13] = [KZV]::new('Sachsen', 'Sach', '56', 'https://www.zahnaerzte-in-sachsen.de/', 'https://www.zahnaerzte-in-sachsen.de/zahnaerzte/download/zahntechnik/', 'https://www.zahnaerzte-in-sachsen.de/downloads/56la0220.csv', 'https://www.zahnaerzte-in-sachsen.de/downloads/2020schnelluebersicht_laborpreise_paragraph_57.pdf')
         $this.KZV[14] = [KZV]::new('Sachsen-Anhalt', 'SaAn', '54', 'https://www.kzv-lsa.de/', '', '')
         $this.KZV[15] = [KZV]::new('Schleswig-Holstein', 'SHol', '36', 'http://www.kzv-sh.de/', '', '')
         $this.KZV[16] = [KZV]::new('Thüringen', 'Thue', '55', 'http://secure2.kzv-thueringen.de/', '', '')
@@ -104,6 +104,15 @@ $VDDSHeaderConvert = @('Kürzel','Nr','Bezeichnung','Kassenart',@{N='PreisGewerb
 $saPNeu = $saPreise| select -Property $VDDSHeaderConvert
 
 $saPNeu| measure -Property preisgewerbelabor -AllStats
+
+# URL-Check der Homepage
+$k.kzv|select kzvnummer, Name, Homepage, @{N='Erreichbar';E={(Invoke-WebRequest -Uri $_.Homepage).StatusCode -eq 200}} | sort kzvnummer
+
+# alle PDF-Links einer Seite ermitteln:
+(Invoke-WebRequest -uri $k.kzv[-4].HomepagePreise).links.href| where {$_ -match '.pdf'}
+
+# alle Links auf CSV-Dateien einer Seite ermitteln:
+(Invoke-WebRequest -uri $k.kzv[-4].HomepagePreise).links.href| where {$_ -match '.csv'}
 
 # Nordrhein Praxispreise: https://www.kzvnr.de/medien/PDFs/Zahn%C3%A4rzteseite/BEL-Listen_II__Zahnersatz_/BEL_II_ab_01.01.2020.csv
 

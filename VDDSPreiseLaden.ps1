@@ -76,6 +76,8 @@ $k.kzv|select Kurzname, kzvnummer, @{N='CSVName';E={$_.PreisCSVLink.Segments[-1]
 # Preise können generell von KZV, Innung, oder Softwarehersteller kommen
 # in der Regel in der Form CSV-, PDF- oder Excel-Datei
 
+# für XLSX-Dateien kann man das Modul ImportExcel verwenden, ist Core kompatibel
+# Install-Module ImportExcel -Scope CurrentUser
 
 
 $url=[uri]'https://www.kzv-lsa.de/files/KZV-SA/Inhalte/Dokumente/BEL-Preisliste/2020/54la0120.csv'

@@ -40,7 +40,7 @@ class KZVen {
 
         # hier sollten immer die Links zu allen aktuellen KZVen stehen:
         # https://www.kzbv.de/bundeseinheitliches-kassenverzeichnis-bkv.951.de.html
-        # auch hier gibts Infos und Links: https://www.vdds.de/schnittstellen/labor-preise/#top
+        # ahuch hier gibts Infos und Links: https://www.vdds.de/schnittstellen/labor-preise/#top
 
         # TODO: Verweise auf CSV- und PDF-Preislisten entkoppeln, damit die Jahre zugeordnet werden können
         # TODO: Splitting von CSV- und PDF-Preislisten nach ZE und KFO vorsehen, z. B. hat Bayern in 2020 zwei PDF-Dateien obwohl nur eine CSV
@@ -62,7 +62,7 @@ class KZVen {
         $this.KZV[13] = [KZV]::new('Sachsen', 'Sach', '56', 'https://www.zahnaerzte-in-sachsen.de/', 'https://www.zahnaerzte-in-sachsen.de/zahnaerzte/download/zahntechnik/', 'https://www.zahnaerzte-in-sachsen.de/downloads/56la0220.csv', 'https://www.zahnaerzte-in-sachsen.de/downloads/2020schnelluebersicht_laborpreise_paragraph_57.pdf')
         $this.KZV[14] = [KZV]::new('Sachsen-Anhalt', 'SaAn', '54', 'https://www.kzv-lsa.de/', '', '')
         $this.KZV[15] = [KZV]::new('Schleswig-Holstein', 'SHol', '36', 'http://www.kzv-sh.de/', '', '')
-        $this.KZV[16] = [KZV]::new('Thüringen', 'Thue', '55', 'http://secure2.kzv-thueringen.de/', '', '')
+        $this.KZV[16] = [KZV]::new('Thüringen', 'Thue', '55', 'https://www.kzvth.de/', 'https://www.kzvth.de/bel-beb-2020', '')
     }
 }
 
@@ -88,6 +88,8 @@ If ($url.Segments[-1].ToLower() -match '.csv$') {
 $sa=Invoke-WebRequest -UseBasicParsing -Uri $url
 $bsa=$sa.RawContentStream.ToArray()   # muss sein, sonst gibt es Streß mit Umlauten
 $saCSV=[System.Text.Encoding]::UTF8.GetString($bsa)
+# alternativ aus Datei einlesen
+# $saCSV=Get-Content .\55la0320.csv -Encoding oem
 $saCsvNew=$saCSV -split "`n"
 # Anzahl der Felder ermitteln
 $Spalten = ($saCsvNew[0] -split ';').count
@@ -97,6 +99,12 @@ If ($Spalten -eq 14) {
 } else {
     $VDDSCSVHeader = @('Kürzel','Nr','Bezeichnung','Kassenart','PreisPraxisLabor','PreisGewerbeLabor', 'PreisZEPraxis', 'PreisZEGeewerbe', 'PreisKFOPraxis', 'PreisKFOGewerbe', 'PreisKBPraxis', 'PreisKBGewerbe', 'PreisPAPraxis', 'PreisPAGewerbe')
 }
+# möglichen Header entfernen
+If ($saCsvNew[0] -match 'BEL') {
+    $saCsvNew=$saCsvNew[1..($saCsvNew.Length)-1]
+}
+# Leereintragungen entfernen
+$saCsvNew = $saCsvNew | where {$_ -NotMatch ';;;;'}
 
 $saPreise=$saCsvNew|ConvertFrom-Csv -Delimiter ';' -Header $VDDSCSVHeader
 $saPreise|Out-GridView

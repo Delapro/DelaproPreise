@@ -11,6 +11,8 @@ class KZV {
     [Uri]$HomepagePreise
     [Uri]$PreisCSVLink
     [Uri]$PreisPDFLink
+    [System.Text.Encoding]$Encoding
+    [System.IO.FileInfo]$AlternateFile
 
     KZV ($Name, $Kurzname, $KZVNummer, $Homepage, $HomepagePreise, $PreisCSVLink) {
         $this.Name = $Name

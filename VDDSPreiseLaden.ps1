@@ -79,17 +79,24 @@ $k.kzv|select Kurzname, kzvnummer, @{N='CSVName';E={$_.PreisCSVLink.Segments[-1]
 # für XLSX-Dateien kann man das Modul ImportExcel verwenden, ist Core kompatibel
 # Install-Module ImportExcel -Scope CurrentUser
 
+# eine bestimmte KZV auswählen
+$kzv = $k.kzv|where name -eq "Thüringen"
+# Homepage mit Preisen öffnen
+Start-Process $kzv.HomepagePreise
 
-$url=[uri]'https://www.kzv-lsa.de/files/KZV-SA/Inhalte/Dokumente/BEL-Preisliste/2020/54la0120.csv'
-If ($url.Segments[-1].ToLower() -match '.csv$') {
-    # CSV-Dateiname ist direkt in der URL angegeben
-    $url.Segments[-1]
+If ($kzv.PreisCSVLink) {
+    $url=[uri]$kzv.PreisCSVLink
+    If ($url.Segments[-1].ToLower() -match '.csv$') {
+        # CSV-Dateiname ist direkt in der URL angegeben
+        $url.Segments[-1]
+    }
+    $sa=Invoke-WebRequest -UseBasicParsing -Uri $url
+    $bsa=$sa.RawContentStream.ToArray()   # muss sein, sonst gibt es Streß mit Umlauten
+    $saCSV=[System.Text.Encoding]::UTF8.GetString($bsa)
+} else {
+    # alternativ aus Datei einlesen
+    $saCSV=Get-Content .\55la0320.csv -Encoding oem
 }
-$sa=Invoke-WebRequest -UseBasicParsing -Uri $url
-$bsa=$sa.RawContentStream.ToArray()   # muss sein, sonst gibt es Streß mit Umlauten
-$saCSV=[System.Text.Encoding]::UTF8.GetString($bsa)
-# alternativ aus Datei einlesen
-# $saCSV=Get-Content .\55la0320.csv -Encoding oem
 $saCsvNew=$saCSV -split "`n"
 # Anzahl der Felder ermitteln
 $Spalten = ($saCsvNew[0] -split ';').count

@@ -90,6 +90,19 @@ class KZV {
         return $erg
     }
 
+    [bool]HomepagePreiseErreichbar () {
+        [bool]$erg = $false;
+
+        if ($this.HomepagePreise) {
+            try {
+                $erg = (Invoke-WebRequest -Uri $this.HomepagePreise -Headers $this.RequestHeaders).StatusCode -eq 200
+            } catch {
+                $erg = $false
+            }
+        }
+        return $erg
+    }
+
     [uri[]]GetPDFPreiseLinks () {
         return GetAllLinksForFileExtension -root $this.Homepage -site $this.HomepagePreise -fileExtension '.pdf'
     }
@@ -201,6 +214,8 @@ $saPNeu| measure -Property preisgewerbelabor -AllStats
 # URL-Check der Homepage
 # alte Variante: $k.kzv|select kzvnummer, Name, Homepage, @{N='Erreichbar';E={(Invoke-WebRequest -Uri $_.Homepage -Headers $_.RequestHeaders).StatusCode -eq 200}} | sort kzvnummer
 $k.kzv|select kzvnummer, Name, Homepage, @{N='Erreichbar';E={$_.HomepageErreichbar()}} | sort kzvnummer
+
+$k.kzv|select kzvnummer, Name, HomepagePreise, @{N='Erreichbar';E={$_.HomepagePreiseErreichbar()}} | sort kzvnummer
 
 # alle PDF-Links einer Seite ermitteln:
 # alte Variante: (Invoke-WebRequest -uri $k.kzv[-3].HomepagePreise).links.href| where {$_ -match '.pdf'}

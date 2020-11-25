@@ -3,6 +3,29 @@
 $KZVBereich = @('Baden-Württemberg', 'Bayern', 'Hessen', 'Rheinland-Pfalz', 'Saarland, ''Nordrhein', 'Westfalen', 'Niedersachsen', 'Bremen', 'Hamburg', 'Schleswig-Holstein', 'Mecklenburg-Vorpommern', 'Brandenburg', 'Berlin', 'Sachsen', 'Sachsen-Anhalt', 'Thüringen')
 $Kassenart = @{'Alle Kassen'=0; 'Primärkassen'=1; 'Ersatzkassen'=2}
 
+Function GetAllLinksForFileExtension {
+    [CmdletBinding()]
+    [OutputType([uri[]])]
+    Param (
+        [parameter(Mandatory=$true)]
+        [uri]$root,
+        [parameter(Mandatory=$true)]
+        [uri]$site,
+        [parameter(Mandatory=$true)]
+        [string]$fileExtension
+    )
+
+    [uri[]]$links=$null
+
+    if ($site) {
+        $links = (Invoke-WebRequest -uri $site).links.href| Where-Object {$_ -match $fileExtension}
+        If ($links) {
+            $links = $links | ForEach-Object {If ($_.IsAbsoluteUri) {$_} else {[uri]("$($root)$($_.OriginalString)")}}
+        }
+    }
+    return $links
+}
+
 class KZV {
     [String]$Name
     [String]$Kurzname  # wie von Delapro verwendet
@@ -32,6 +55,25 @@ class KZV {
         $this.HomepagePreise = $HomepagePreise
         $this.PreisCSVLink = $PreisCSVLink
         $this.PreisPDFLink = $PreisPDFLink
+    }
+
+    [bool]HomepageErreichbar () {
+        [bool]$erg = $false;
+
+        try {
+            $erg = (Invoke-WebRequest -Uri $this.Homepage -Headers $this.RequestHeaders).StatusCode -eq 200
+        } catch {
+            $erg = $false
+        }
+        return $erg
+    }
+
+    [uri[]]GetPDFPreiseLinks () {
+        return GetAllLinksForFileExtension -root $this.Homepage -site $this.HomepagePreise -fileExtension '.pdf'
+    }
+
+    [uri[]]GetCSVPreiseLinks () {
+        return GetAllLinksForFileExtension -root $this.Homepage -site $this.HomepagePreise -fileExtension '.csv'
     }
 }
 
@@ -65,7 +107,7 @@ class KZVen {
         $this.KZV[13] = [KZV]::new('Sachsen', 'Sach', '56', 'https://www.zahnaerzte-in-sachsen.de/', 'https://www.zahnaerzte-in-sachsen.de/zahnaerzte/download/zahntechnik/', 'https://www.zahnaerzte-in-sachsen.de/downloads/56la0220.csv', 'https://www.zahnaerzte-in-sachsen.de/downloads/2020schnelluebersicht_laborpreise_paragraph_57.pdf')
 
         $this.KZV[14] = [KZV]::new('Sachsen-Anhalt', 'SaAn', '54', 'https://www.kzv-lsa.de/', 'https://www.kzv-lsa.de/f%C3%BCr-die-praxis/abrechnung/bel-liste.html', 'https://www.kzv-lsa.de/files/Inhalte/Abrechnung/BEL/2020/54la0120.csv', 'https://www.kzv-lsa.de/files/Inhalte/Abrechnung/BEL/2020/HB_Fach_5.3_Hoechstpreisliste.pdf')
-        # Sachsen-Anhalt benötigt zwingend diesen Header:
+        # Sachsen-Anhalt Homepage benötigt zwingend diesen Header:
         $this.KZV[14].RequestHeaders = @{"Accept-Language"="de-DE,de;q=0.9,en-US;q=0.8,en;q=0.7"}
 
         $this.KZV[15] = [KZV]::new('Schleswig-Holstein', 'SHol', '36', 'http://www.kzv-sh.de/', '', '')
@@ -130,13 +172,16 @@ $saPNeu = $saPreise| select -Property $VDDSHeaderConvert
 $saPNeu| measure -Property preisgewerbelabor -AllStats
 
 # URL-Check der Homepage
-$k.kzv|select kzvnummer, Name, Homepage, @{N='Erreichbar';E={(Invoke-WebRequest -Uri $_.Homepage -Headers $_.RequestHeaders).StatusCode -eq 200}} | sort kzvnummer
+# alte Variante: $k.kzv|select kzvnummer, Name, Homepage, @{N='Erreichbar';E={(Invoke-WebRequest -Uri $_.Homepage -Headers $_.RequestHeaders).StatusCode -eq 200}} | sort kzvnummer
+$k.kzv|select kzvnummer, Name, Homepage, @{N='Erreichbar';E={$_.HomepageErreichbar()}} | sort kzvnummer
 
 # alle PDF-Links einer Seite ermitteln:
-(Invoke-WebRequest -uri $k.kzv[-4].HomepagePreise).links.href| where {$_ -match '.pdf'}
+# alte Variante: (Invoke-WebRequest -uri $k.kzv[-3].HomepagePreise).links.href| where {$_ -match '.pdf'}
+$k.KZV[-3].GetPdfPreiseLinks() | Select AbsoluteUri
 
 # alle Links auf CSV-Dateien einer Seite ermitteln:
-(Invoke-WebRequest -uri $k.kzv[-4].HomepagePreise).links.href| where {$_ -match '.csv'}
+# alte Variante: (Invoke-WebRequest -uri $k.kzv[-3].HomepagePreise).links.href| where {$_ -match '.csv'}
+$k.KZV[-3].GetCsvPreiseLinks() | Select AbsoluteUri
 
 # Nordrhein Praxispreise: https://www.kzvnr.de/medien/PDFs/Zahn%C3%A4rzteseite/BEL-Listen_II__Zahnersatz_/BEL_II_ab_01.01.2020.csv
 

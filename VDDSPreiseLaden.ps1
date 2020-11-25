@@ -13,6 +13,7 @@ class KZV {
     [Uri]$PreisPDFLink
     [System.Text.Encoding]$Encoding
     [System.IO.FileInfo]$AlternateFile
+    [hashtable]$RequestHeaders
 
     KZV ($Name, $Kurzname, $KZVNummer, $Homepage, $HomepagePreise, $PreisCSVLink) {
         $this.Name = $Name
@@ -63,6 +64,8 @@ class KZVen {
         $this.KZV[12] = [KZV]::new('Saarland', 'Saar', '35', 'https://www.zahnaerzte-saarland.de', '', '')
         $this.KZV[13] = [KZV]::new('Sachsen', 'Sach', '56', 'https://www.zahnaerzte-in-sachsen.de/', 'https://www.zahnaerzte-in-sachsen.de/zahnaerzte/download/zahntechnik/', 'https://www.zahnaerzte-in-sachsen.de/downloads/56la0220.csv', 'https://www.zahnaerzte-in-sachsen.de/downloads/2020schnelluebersicht_laborpreise_paragraph_57.pdf')
         $this.KZV[14] = [KZV]::new('Sachsen-Anhalt', 'SaAn', '54', 'https://www.kzv-lsa.de/', '', '')
+        # Sachsen-Anhalt benötigt zwingend diesen Header:
+        $this.KZV[14].RequestHeaders = @{"Accept-Language"="de-DE,de;q=0.9,en-US;q=0.8,en;q=0.7"}
         $this.KZV[15] = [KZV]::new('Schleswig-Holstein', 'SHol', '36', 'http://www.kzv-sh.de/', '', '')
         $this.KZV[16] = [KZV]::new('Thüringen', 'Thue', '55', 'https://www.kzvth.de/', 'https://www.kzvth.de/bel-beb-2020', '')
     }
@@ -125,7 +128,7 @@ $saPNeu = $saPreise| select -Property $VDDSHeaderConvert
 $saPNeu| measure -Property preisgewerbelabor -AllStats
 
 # URL-Check der Homepage
-$k.kzv|select kzvnummer, Name, Homepage, @{N='Erreichbar';E={(Invoke-WebRequest -Uri $_.Homepage).StatusCode -eq 200}} | sort kzvnummer
+$k.kzv|select kzvnummer, Name, Homepage, @{N='Erreichbar';E={(Invoke-WebRequest -Uri $_.Homepage -Headers $_.RequestHeaders).StatusCode -eq 200}} | sort kzvnummer
 
 # alle PDF-Links einer Seite ermitteln:
 (Invoke-WebRequest -uri $k.kzv[-4].HomepagePreise).links.href| where {$_ -match '.pdf'}

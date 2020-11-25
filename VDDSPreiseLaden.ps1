@@ -104,7 +104,9 @@ class KZVen {
         # alte Preise 2019 RPF: https://www.kzvrlp.de/fileadmin/KZV/Downloads/Mitglieder/Abrechnung/Aktuelles/BEL-Preise/06la0119.csv
         $this.KZV[11] = [KZV]::new('Rheinland-Pfalz', 'RhPf', '06', 'https://www.kzvrlp.de/', 'https://www.kzvrlp.de/mitglieder/abrechnung/bel-ii/', 'https://www.kzvrlp.de/fileadmin/KZV/Downloads/Mitglieder/Abrechnung/Aktuelles/BEL-Preise/06la0120.csv', 'https://www.kzvrlp.de/index.php?eID=tx_securedownloads&p=256&u=0&g=0&t=1579339965&hash=7263f05c3c30c30ec966430fc46de459d006977e&file=fileadmin/KZV/Downloads/Mitglieder/Abrechnung/Aktuelles/BEL-Preise/Kurzfassung_BEL_Preise_01.01.2020.pdf')
         $this.KZV[12] = [KZV]::new('Saarland', 'Saar', '35', 'https://www.zahnaerzte-saarland.de', '', '')
-        $this.KZV[13] = [KZV]::new('Sachsen', 'Sach', '56', 'https://www.zahnaerzte-in-sachsen.de/', 'https://www.zahnaerzte-in-sachsen.de/zahnaerzte/download/zahntechnik/', 'https://www.zahnaerzte-in-sachsen.de/downloads/56la0220.csv', 'https://www.zahnaerzte-in-sachsen.de/downloads/2020schnelluebersicht_laborpreise_paragraph_57.pdf')
+        
+        # KFO: https://www.zahnaerzte-in-sachsen.de/fileadmin/Praxis/KZVS/Abrechnung/BEL_II/2020schnelluebersicht_laborpreise_paragraph_88.pdf
+        $this.KZV[13] = [KZV]::new('Sachsen', 'Sach', '56', 'https://www.zahnaerzte-in-sachsen.de/', 'https://www.zahnaerzte-in-sachsen.de/praxis/abrechnung/zahntechnik/', 'https://www.zahnaerzte-in-sachsen.de/fileadmin/Praxis/KZVS/Abrechnung/BEL_II/56la0220.csv', 'https://www.zahnaerzte-in-sachsen.de/fileadmin/Praxis/KZVS/Abrechnung/BEL_II/2020schnelluebersicht_laborpreise_paragraph_57.pdf')
 
         $this.KZV[14] = [KZV]::new('Sachsen-Anhalt', 'SaAn', '54', 'https://www.kzv-lsa.de/', 'https://www.kzv-lsa.de/f%C3%BCr-die-praxis/abrechnung/bel-liste.html', 'https://www.kzv-lsa.de/files/Inhalte/Abrechnung/BEL/2020/54la0120.csv', 'https://www.kzv-lsa.de/files/Inhalte/Abrechnung/BEL/2020/HB_Fach_5.3_Hoechstpreisliste.pdf')
         # Sachsen-Anhalt Homepage benötigt zwingend diesen Header:

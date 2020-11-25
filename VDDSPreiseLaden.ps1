@@ -1,4 +1,4 @@
-# Requires PS7
+#Requires -Version 7
 
 $KZVBereich = @('Baden-Württemberg', 'Bayern', 'Hessen', 'Rheinland-Pfalz', 'Saarland, ''Nordrhein', 'Westfalen', 'Niedersachsen', 'Bremen', 'Hamburg', 'Schleswig-Holstein', 'Mecklenburg-Vorpommern', 'Brandenburg', 'Berlin', 'Sachsen', 'Sachsen-Anhalt', 'Thüringen')
 $Kassenart = @{'Alle Kassen'=0; 'Primärkassen'=1; 'Ersatzkassen'=2}

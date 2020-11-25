@@ -20,10 +20,32 @@ Function GetAllLinksForFileExtension {
     if ($site) {
         $links = (Invoke-WebRequest -uri $site).links.href| Where-Object {$_ -match $fileExtension}
         If ($links) {
-            $links = $links | ForEach-Object {If ($_.IsAbsoluteUri) {$_} else {[uri]("$($root)$($_.OriginalString)")}}
+            $links = $links | ForEach-Object {Join-Uri -Link $_ -Root $root}
         }
     }
     return $links
+}
+
+# wegen Problemen mit Komprimieren von URIs: https://github.com/dotnet/runtime/issues/31300
+# gibt es diese Routine, welche unnötige / beim Zusammenketten von Urls entfernt
+Function Join-Uri {
+    [CmdletBinding()]
+    [OutputType([uri])]
+    Param (
+        [Uri]$Link,
+        [Uri]$Root
+    )
+
+    If ($Link.IsAbsoluteUri) {
+        $Link
+    } else {
+        If (($Root.OriginalString.Substring($Root.OriginalString.Length -1) -eq '/') -and
+              ($Link.OriginalString.Substring(0, 1) -eq '/')) {
+                [uri]"$($Root.OriginalString.Substring(0,$Root.OriginalString.LastIndexOf('/')))$($Link.OriginalString)"
+        } else {
+            [uri]"$($Root.OriginalString)$($Link.OriginalString)"
+        }
+    }
 }
 
 class KZV {

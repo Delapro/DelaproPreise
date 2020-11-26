@@ -48,6 +48,44 @@ Function Join-Uri {
     }
 }
 
+class Preis {
+    [DateTime]$GueltigAb
+    [Uri]$PreisCSVLink
+    [Uri]$PreisPDFLink
+    [Uri]$PreisKFOCSVLink
+    [Uri]$PreisKFOPDFLink
+    [System.Text.Encoding]$Encoding
+    [System.IO.FileInfo]$AlternateFile
+
+}
+
+class Preise {
+    # ``1 ist wichtig, sonst gibts Stress bei Add. ``1 bedeutet einen Typ in der generischen Liste
+    [System.Collections.Generic.List``1[Preis]]$Preis
+
+    Preise ([DateTime]$GueltigAb, $PreisCSVLink) {
+        If ($null -eq $this.Preis) {
+            $this.Preis = [System.Collections.Generic.List``1[Preis]]::new()
+        }
+        $p = [Preis]::new()
+        $p.PreisCSVLink = $PreisCSVLink
+        $this.Preis.Add($p)
+    }
+    Preise ([DateTime]$GueltigAb, $PreisCSVLink, $PreisPDFLink) {
+        If ($null -eq $this.Preis) {
+            $this.Preis = [System.Collections.Generic.List``1[Preis]]::new()
+        }
+        $p = [Preis]::new()
+        $p.PreisCSVLink = $PreisCSVLink
+        $p.PreisPDFLink = $PreisPDFLink
+        $this.Preis.Add($p)
+    }
+
+    Add ([Preis]$preis) {
+        $this.Preis.Add($preis)
+    }
+}
+
 class KZV {
     [String]$Name
     [String]$Kurzname  # wie von Delapro verwendet

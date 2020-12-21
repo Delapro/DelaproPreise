@@ -158,7 +158,7 @@ class KZVen {
 
         # hier sollten immer die Links zu allen aktuellen KZVen stehen:
         # https://www.kzbv.de/bundeseinheitliches-kassenverzeichnis-bkv.951.de.html
-        # ahuch hier gibts Infos und Links: https://www.vdds.de/schnittstellen/labor-preise/#top
+        # auch hier gibts Infos und Links: https://www.vdds.de/schnittstellen/labor-preise/#top
 
         # TODO: Verweise auf CSV- und PDF-Preislisten entkoppeln, damit die Jahre zugeordnet werden können
         # TODO: Splitting von CSV- und PDF-Preislisten nach ZE und KFO vorsehen, z. B. hat Bayern in 2020 zwei PDF-Dateien obwohl nur eine CSV

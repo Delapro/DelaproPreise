@@ -2,6 +2,15 @@
 
 $KZVBereich = @('Baden-Württemberg', 'Bayern', 'Hessen', 'Rheinland-Pfalz', 'Saarland, ''Nordrhein', 'Westfalen', 'Niedersachsen', 'Bremen', 'Hamburg', 'Schleswig-Holstein', 'Mecklenburg-Vorpommern', 'Brandenburg', 'Berlin', 'Sachsen', 'Sachsen-Anhalt', 'Thüringen')
 $Kassenart = @{'Alle Kassen'=0; 'Primärkassen'=1; 'Ersatzkassen'=2}
+$LeistungsgruppenBEL2 = @{'Arbeitsvorbereitung'=0
+    ;'Festsitzender Zahnersatz'=1
+    ;'Herausnehmbarer Zahnersatz aus Legierungen (Modellguss)'=2
+    ;'Herausnehmbarer Zahnersatz aus Kunststoff'=3
+    ;'Aufbissbehelfe'=4
+    ;'Kieferorthopädie'=7
+    ;'Wiederherstellungen und Erweiterungen'=8
+    ;'Materialien und Sonstiges'=9
+}
 
 Function GetAllLinksForFileExtension {
     [CmdletBinding()]

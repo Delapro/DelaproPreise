@@ -17,7 +17,7 @@ Function GetAllLinksForFileExtension {
 
     [uri[]]$links=$null
 
-    if ($site) {
+    if (-not ([string]::IsNullOrEmpty($site))) {
         $links = (Invoke-WebRequest -uri $site).links.href| Where-Object {$_ -match $fileExtension}
         If ($links) {
             $links = $links | ForEach-Object {Join-Uri -Link $_ -Root $root}

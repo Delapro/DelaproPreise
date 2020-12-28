@@ -173,8 +173,8 @@ class KZVen {
         # TODO: Splitting von CSV- und PDF-Preislisten nach ZE und KFO vorsehen, z. B. hat Bayern in 2020 zwei PDF-Dateien obwohl nur eine CSV
         $this.KZV[0] = [KZV]::new('Baden-Württemberg', 'BaWu', '02', 'http://www.kzvbw.de/site/', '', '')
 
-        # KFO: https://www.kzvb.de/fileadmin/user_upload/Abrechnung/BEL/BEL_KB_KFO_012020.pdf
-        $this.KZV[1] = [KZV]::new('Bayern', 'Baye', '11', 'https://www.kzvb.de/', 'https://www.kzvb.de/abrechnung/bel-preise', 'https://www.kzvb.de/fileadmin/user_upload/Abrechnung/BEL/11la0120.csv', 'https://www.kzvb.de/fileadmin/user_upload/Abrechnung/BEL/BEL_ZE_012020.pdf')
+        # KFO: https://www.kzvb.de/fileadmin/user_upload/Abrechnung/BEL/BEL_Preise_KFO_KB_012021.pdf
+        $this.KZV[1] = [KZV]::new('Bayern', 'Baye', '11', 'https://www.kzvb.de/', 'https://www.kzvb.de/abrechnung/bel-preise', 'https://www.kzvb.de/fileadmin/user_upload/Abrechnung/BEL/11la0121.csv', 'https://www.kzvb.de/fileadmin/user_upload/Abrechnung/BEL/BEL_Preise_ZE_012021.pdf')
 
         $this.KZV[2] = [KZV]::new('Berlin', 'Berl', '30', 'https://www.kzv-berlin.de/', 'https://www.kzv-berlin.de/praxis-service/abrechnung/bel-ii-laborpreise/', 'https://www.kzv-berlin.de/fileadmin/user_upload/Praxis-Service/1_Abrechnung/8_BEL_II__Laborpreise/30la0320.csv', 'https://www.kzv-berlin.de/fileadmin/user_upload/Praxis-Service/1_Abrechnung/8_BEL_II__Laborpreise/Laborpreise_seit_2020_03_01.pdf')
         $this.KZV[3] = [KZV]::new('Brandenburg', 'Bran', '53', 'http://www.kzvlb.de/', 'https://verwaltung.kzvlb.de/info.php', '', 'https://www.kzvlb.de/fileadmin/user_upload/sw/BEL_II_GewerblicheLabore_2003.pdf')

@@ -1,6 +1,6 @@
 #Requires -Version 7
 
-$KZVBereich = @('Baden-Württemberg', 'Bayern', 'Hessen', 'Rheinland-Pfalz', 'Saarland, ''Nordrhein', 'Westfalen', 'Niedersachsen', 'Bremen', 'Hamburg', 'Schleswig-Holstein', 'Mecklenburg-Vorpommern', 'Brandenburg', 'Berlin', 'Sachsen', 'Sachsen-Anhalt', 'Thüringen')
+$KZVBereich = @('Baden-Württemberg', 'Bayern', 'Hessen', 'Rheinland-Pfalz', 'Saarland', 'Nordrhein', 'Westfalen', 'Niedersachsen', 'Bremen', 'Hamburg', 'Schleswig-Holstein', 'Mecklenburg-Vorpommern', 'Brandenburg', 'Berlin', 'Sachsen', 'Sachsen-Anhalt', 'Thüringen')
 $Kassenart = @{'Alle Kassen'=0; 'Primärkassen'=1; 'Ersatzkassen'=2}
 $LeistungsgruppenBEL2 = @{'Arbeitsvorbereitung'=0
     ;'Festsitzender Zahnersatz'=1

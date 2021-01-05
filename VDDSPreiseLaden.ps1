@@ -1,7 +1,27 @@
 #Requires -Version 7
 
-$KZVBereich = @('Baden-Württemberg', 'Bayern', 'Hessen', 'Rheinland-Pfalz', 'Saarland', 'Nordrhein', 'Westfalen', 'Niedersachsen', 'Bremen', 'Hamburg', 'Schleswig-Holstein', 'Mecklenburg-Vorpommern', 'Brandenburg', 'Berlin', 'Sachsen', 'Sachsen-Anhalt', 'Thüringen')
-$Kassenart = @{'Alle Kassen'=0; 'Primärkassen'=1; 'Ersatzkassen'=2}
+$KZVBereich = @('Baden-Württemberg'
+    ,'Bayern'
+    ,'Hessen'
+    ,'Rheinland-Pfalz'
+    ,'Saarland'
+    ,'Nordrhein'
+    ,'Westfalen'
+    ,'Niedersachsen'
+    ,'Bremen'
+    ,'Hamburg'
+    ,'Schleswig-Holstein'
+    ,'Mecklenburg-Vorpommern'
+    ,'Brandenburg'
+    ,'Berlin'
+    ,'Sachsen'
+    ,'Sachsen-Anhalt'
+    ,'Thüringen'
+)
+$Kassenart = @{'Alle Kassen'=0
+    ;'Primärkassen'=1
+    ;'Ersatzkassen'=2
+}
 $LeistungsgruppenBEL2 = @{'Arbeitsvorbereitung'=0
     ;'Festsitzender Zahnersatz'=1
     ;'Herausnehmbarer Zahnersatz aus Legierungen (Modellguss)'=2
@@ -104,7 +124,7 @@ class KZV {
     [Uri]$PreisCSVLink
     [Uri]$PreisPDFLink
     [System.Text.Encoding]$Encoding
-    [System.IO.FileInfo]$AlternateFile
+    [System.IO.FileInfo]$AlternateFile  # kann verwendet werden um lokale Dateien einbinden zu können
     [hashtable]$RequestHeaders
 
     KZV ($Name, $Kurzname, $KZVNummer, $Homepage, $HomepagePreise, $PreisCSVLink) {

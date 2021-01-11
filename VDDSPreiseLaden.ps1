@@ -202,7 +202,9 @@ class KZVen {
         # TODO: Hamburg hat Splitting von ZE und KFO!!
         $this.KZV[5] = [KZV]::new('Hamburg', 'Hamb', '32', 'https://www.zahnaerzte-hh.de/', 'https://www.zahnaerzte-hh.de/zahnaerzte-portal/praxis/abrechnung/kassenabrechnung-kzv/punktwerte-laborpreise-bel-materialkosten/', 'https://www.zahnaerzte-hh.de/zahnaerzte-portal/mediathek/download-center/geschuetztes-dokument/file/download/36337/', 'https://www.zahnaerzte-hh.de/zahnaerzte-portal/mediathek/download-center/geschuetztes-dokument/file/download/36331/')
         $this.KZV[6] = [KZV]::new('Hessen', 'Hess', '20', 'https://www.kzvh.de/index.html', '', '')
-        $this.KZV[7] = [KZV]::new('Mecklenburg-Vorpommern', 'MeVo', '52', 'http://www.kzvmv.de/', '', '')
+
+        # MeVo: die Preise sind unter BKV-Download zu finden!
+        $this.KZV[7] = [KZV]::new('Mecklenburg-Vorpommern', 'MeVo', '52', 'https://www.kzvmv.de/', 'https://www.kzvmv.de/bkv-download/', 'https://www.kzvmv.de/dokumente/52la0121.csv')
         $this.KZV[8] = [KZV]::new('Niedersachsen', 'Nisa', '04', 'https://www.kzvn.de/', '', '')
         $this.KZV[9] = [KZV]::new('Nordrhein', 'Nord', '13', 'http://www.kzvnr.de/', '', '')
         # WL dazu noch KFO: https://www.zahnaerzte-wl.de/images/kzvwl/praxisteam/abrechnung/aktuelle-abrechnungsinfos-fuer-vertragszahnaerzte/Laborpreisliste_KFO_2021.pdf

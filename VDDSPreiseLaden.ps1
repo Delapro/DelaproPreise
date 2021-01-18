@@ -220,7 +220,8 @@ class KZVen {
         # Sachsen-Anhalt Homepage benötigt zwingend diesen Header:
         $this.KZV[14].RequestHeaders = @{"Accept-Language"="de-DE,de;q=0.9,en-US;q=0.8,en;q=0.7"}
 
-        $this.KZV[15] = [KZV]::new('Schleswig-Holstein', 'SHol', '36', 'http://www.kzv-sh.de/', 'https://www.kzv-sh.de/fuer-die-praxis/abrechnung/bel-ii/', '')
+        # KFO: https://www.kzv-sh.de/wp-content/uploads/2021/01/BEL-II-Preislisten-KFO-01.01.2021-Gewerbelabor.pdf
+        $this.KZV[15] = [KZV]::new('Schleswig-Holstein', 'SHol', '36', 'http://www.kzv-sh.de/', 'https://www.kzv-sh.de/fuer-die-praxis/abrechnung/bel-ii/', 'https://www.kzv-sh.de/wp-content/uploads/2021/01/36la0121.csv', 'https://www.kzv-sh.de/wp-content/uploads/2021/01/BEL-II-Preislisten-Regelversorgung-01.01.2021-Gewerbelabor.pdf')
         $this.KZV[16] = [KZV]::new('Thüringen', 'Thue', '55', 'https://www.kzvth.de/', 'https://www.kzvth.de/bel-beb', 'https://www.kzvth.de/services/asset/KZVTh/Downloadbereich/BEL/BEL%202021/55la0121.csv', 'https://www.kzvth.de/services/asset/KZVTh/Downloadbereich/BEL/BEL%202021/Bel_II_Kurzversion_ab_01012021_KZV.pdf')
     }
 }

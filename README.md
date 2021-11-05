@@ -15,6 +15,7 @@ relevante Links:
 * [Schreiben BMG Veränderungsrate für 2019](https://www.gkv-spitzenverband.de/media/dokumente/krankenversicherung_1/krankenhaeuser/budgetverhandlungen/gl_veraenderungsrate/KH_GL_Veraenderungsrate_2019.pdf)
 * [Schreiben BMG Veränderungsrate für 2020](https://www.bundesgesundheitsministerium.de/fileadmin/Dateien/3_Downloads/Statistiken/GKV/Kennzahlen_Daten/19Sep13_Bekanntmachung_Internet_2019.pdf)
 * [Schreiben BMG Veränderungsrate für 2021](https://www.bundesanzeiger.de/pub/publication/KCtDrcOMahVUZKeWLnk/content/KCtDrcOMahVUZKeWLnk/BAnz%20AT%2011.09.2020%20B2.pdf?inline)
+* [Schreiben BMG Veränderungsrate für 2022](https://www.bundesanzeiger.de/pub/publication/gOL0qJyaska4by9NFJi/content/gOL0qJyaska4by9NFJi/BAnz%20AT%2010.09.2021%20B2.pdf?inline)
 
 ## Preise der einzelnen Bundesländer
 

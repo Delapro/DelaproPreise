@@ -20,3 +20,7 @@ relevante Links:
 ## Preise der einzelnen Bundesländer
 
 * [VDDS CSV-Datei Strukturbeschreibung mit Links zu CSV-Dateien aus den einzelnen KZVen](https://www.vdds.de/schnittstellen/labor-preise/)
+
+## Preise von anderen Herstellern
+
+* [Dampsoft alle Bundesländer](https://www.dampsoft.de/service/laborpreise/)

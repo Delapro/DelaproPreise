@@ -11,6 +11,7 @@ relevante Links:
 * [Schreiben BMG Veränderungsrate von 2000-2007](https://www.bundesgesundheitsministerium.de/fileadmin/Dateien/3_Downloads/Statistiken/GKV/Kennzahlen_Daten/Veraenderungsdaten-Para-71-Abs-3-SGB-V.pdf)
 * [Schreiben BMG Veränderungsrate für 2011](https://www.bundesgesundheitsministerium.de/fileadmin/Dateien/3_Downloads/Statistiken/GKV/Kennzahlen_Daten/Bekanntmachung-GKV-13-09-2010.pdf)
 * [Schreiben BMG Veränderungsrate für 2013](https://www.bundesanzeiger.de/pub/publication/NTkuQ5X6wMzb1sbF9Wb/content/NTkuQ5X6wMzb1sbF9Wb/BAnz%20AT%2014.09.2012%20B1.pdf?inline)
+* [Schreiben BMG Veränderungsrate für 2016](https://www.bundesanzeiger.de/pub/publication/Xwd7xvUUK8yaJ9J2LCW/content/Xwd7xvUUK8yaJ9J2LCW/BAnz%20AT%2011.09.2015%20B2.pdf?inline)
 * [Schreiben BMG Veränderungsrate für 2018](https://www.bundesanzeiger.de/pub/publication/FochQ3vovMaKDGqCiRA/content/FochQ3vovMaKDGqCiRA/BAnz%20AT%2015.09.2017%20B1.pdf?inline)
 * [Schreiben BMG Veränderungsrate für 2019](https://www.gkv-spitzenverband.de/media/dokumente/krankenversicherung_1/krankenhaeuser/budgetverhandlungen/gl_veraenderungsrate/KH_GL_Veraenderungsrate_2019.pdf)
 * [Schreiben BMG Veränderungsrate für 2020](https://www.bundesgesundheitsministerium.de/fileadmin/Dateien/3_Downloads/Statistiken/GKV/Kennzahlen_Daten/19Sep13_Bekanntmachung_Internet_2019.pdf)

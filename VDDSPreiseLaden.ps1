@@ -27,6 +27,7 @@ $LeistungsgruppenBEL2 = @{'Arbeitsvorbereitung'=0
     ;'Herausnehmbarer Zahnersatz aus Legierungen (Modellguss)'=2
     ;'Herausnehmbarer Zahnersatz aus Kunststoff'=3
     ;'Aufbissbehelfe'=4
+    ;'Unterkieferprotrusionsschiene'=5
     ;'Kieferorthopädie'=7
     ;'Wiederherstellungen und Erweiterungen'=8
     ;'Materialien und Sonstiges'=9

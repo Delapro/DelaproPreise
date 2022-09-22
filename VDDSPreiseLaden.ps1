@@ -227,6 +227,63 @@ class KZVen {
     }
 }
 
+# Funktion zum Auslesen der Leistungsbeschreibungen aus den offizellen Beschreibungen
+Function ConvertFrom-BEL2Beschreibung {
+    [CmdletBinding()]
+    Param(
+        [Parameter(Mandatory,ValueFromPipeline)]
+        [String]$Block
+    )
+  
+    Begin {}
+  
+    Process {
+        $BeginLine = 0
+        $BlockLines = $Block -split "`r?`n"  # wichtig " zu verwenden!
+  
+        $Teiltext = ""
+        $Pos = $BlockLines | Select-String 'Kurztext laut Anlage 2'
+        If ($Pos) {
+            $LastLine = ($Pos.LineNumber-2) # immer -2 um die unnötigen Zeilen wegzubekommen
+            $Teiltext = ($BlockLines[$BeginLine..$LastLine] | Out-String).Trim()
+            $BeginLine = $LastLine +2 # um die unnötigen Zeilen wegzubekommen
+        }
+        $Bezeichnung = $Teiltext
+  
+        $Teiltext = ""
+        $Pos = $BlockLines | Select-String 'Erläuterungen zum Leistungsinhalt'
+        If ($Pos) {
+            $LastLine = ($Pos.LineNumber-2) # immer -2 um die unnötigen Zeilen wegzubekommen
+            $Teiltext = ($BlockLines[$BeginLine..$LastLine] | Out-String).Trim()
+            $BeginLine = $LastLine +2 # um die unnötigen Zeilen wegzubekommen
+        }
+        $Kurztext = $Teiltext
+  
+        $Teiltext = ""
+        $Pos = $BlockLines | Select-String 'Erläuterungen zur Abrechnung'
+        If ($Pos) {
+            $LastLine = ($Pos.LineNumber-2) # immer -2 um die unnötigen Zeilen wegzubekommen
+            $Teiltext = ($BlockLines[$BeginLine..$LastLine] | Out-String).Trim()
+            $BeginLine = $LastLine +2 # um die unnötigen Zeilen wegzubekommen
+        } else {
+            # evtl. Sonderfall weil es keine Erläuterung zur Abrechnung gibt
+            $LastLine = $Blocklines.Length-1
+            $Teiltext = ($BlockLines[$BeginLine..$LastLine] | Out-String).Trim()
+        }
+        $Leistungsinhalt = $Teiltext
+  
+        $Teiltext = ""
+        $Pos = $BlockLines | Select-String 'Erläuterungen zur Abrechnung'
+        If ($Pos) {
+            $LastLine = $Blocklines.Length-1
+            $Teiltext = ($BlockLines[$BeginLine..$LastLine] | Out-String).Trim()
+        }
+        $Abrechnung = $Teiltext
+  
+        [PSCustomObject]@{BelNummer="000 0";Bezeichnung=$Bezeichnung;Kurztext=$Kurztext;Leistungsinhalt=$Leistungsinhalt;Abrechnung=$Abrechnung}
+    }
+}
+
 # Anwendung
 $k=[kzven]::new()
 $k.kzv|select kzvnummer, Name, Homepage | sort kzvnummer

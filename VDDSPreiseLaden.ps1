@@ -239,31 +239,57 @@ Function ConvertFrom-BEL2Beschreibung {
   
     Process {
         $BeginLine = 0
+        # Sonderfall, unbekanntes Zeichen wird in Bindestrich gewandelt
+        $unbekannt=[char]61485
+        $Block = $Block -replace $unbekannt,"-" 
         $BlockLines = $Block -split "`r?`n"  # wichtig " zu verwenden!
   
         $Teiltext = ""
         $Pos = $BlockLines | Select-String 'Kurztext laut Anlage 2'
         If ($Pos) {
             $LastLine = ($Pos.LineNumber-2) # immer -2 um die unnötigen Zeilen wegzubekommen
-            $Teiltext = ($BlockLines[$BeginLine..$LastLine] | Out-String).Trim()
+            $Teiltext = ($BlockLines[$BeginLine..$LastLine] | % {$_.Trim()} | Out-String).Trim()
             $BeginLine = $LastLine +2 # um die unnötigen Zeilen wegzubekommen
         }
         $Bezeichnung = $Teiltext
   
         $Teiltext = ""
-        $Pos = $BlockLines | Select-String 'Erläuterungen zum Leistungsinhalt'
+        $Pos = $BlockLines | Select-String 'Erläuterung(?:en)? zum Leistungsinhalt'
+        If ($Pos -is [array]) {
+            $Pos = $Pos[0]
+        }
         If ($Pos) {
             $LastLine = ($Pos.LineNumber-2) # immer -2 um die unnötigen Zeilen wegzubekommen
             $Teiltext = ($BlockLines[$BeginLine..$LastLine] | Out-String).Trim()
             $BeginLine = $LastLine +2 # um die unnötigen Zeilen wegzubekommen
+        } else {
+            $Pos = $BlockLines | Select-String 'Erläuterung(?:en)? zur Abrechnung'
+            If ($Pos -is [array]) {
+                $Pos = $Pos[0]
+            }
+            If ($Pos) {
+                $LastLine = ($Pos.LineNumber-2) # immer -2 um die unnötigen Zeilen wegzubekommen
+                $Teiltext = ($BlockLines[$BeginLine..$LastLine] | Out-String).Trim()
+                $BeginLine = $LastLine +2 # um die unnötigen Zeilen wegzubekommen
+            } else {
+                # absoluter Sonderfall, keine Leistungs- und Abrechungsbeschreibung
+                $TeilText = $BlockLines[-1].Trim()
+            }
         }
         $Kurztext = $Teiltext
   
         $Teiltext = ""
-        $Pos = $BlockLines | Select-String 'Erläuterungen zur Abrechnung'
+        $Pos = $BlockLines | Select-String 'Erläuterung(?:en)? zur Abrechnung'
+        If ($Pos -is [array]) {
+            $Pos = $Pos[0]
+        }
         If ($Pos) {
             $LastLine = ($Pos.LineNumber-2) # immer -2 um die unnötigen Zeilen wegzubekommen
-            $Teiltext = ($BlockLines[$BeginLine..$LastLine] | Out-String).Trim()
+            If ($BeginLine -le $LastLine) {
+                $Teiltext = ($BlockLines[$BeginLine..$LastLine] | % {$_.Trim()} | Out-String).Trim()
+            } else {
+                #$Teiltext = $null
+            }
             $BeginLine = $LastLine +2 # um die unnötigen Zeilen wegzubekommen
         } else {
             # evtl. Sonderfall weil es keine Erläuterung zur Abrechnung gibt
@@ -273,15 +299,30 @@ Function ConvertFrom-BEL2Beschreibung {
         $Leistungsinhalt = $Teiltext
   
         $Teiltext = ""
-        $Pos = $BlockLines | Select-String 'Erläuterungen zur Abrechnung'
+        $Pos = $BlockLines | Select-String 'Erläuterung(?:en)? zur Abrechnung'
+        If ($Pos -is [array]) {
+            $Pos = $Pos[0]
+        }
         If ($Pos) {
             $LastLine = $Blocklines.Length-1
-            $Teiltext = ($BlockLines[$BeginLine..$LastLine] | Out-String).Trim()
+            $Teiltext = ($BlockLines[$BeginLine..$LastLine] | % {$_.Trim()} | Out-String).Trim()
         }
         $Abrechnung = $Teiltext
   
-        [PSCustomObject]@{BelNummer="000 0";Bezeichnung=$Bezeichnung;Kurztext=$Kurztext;Leistungsinhalt=$Leistungsinhalt;Abrechnung=$Abrechnung}
-    }
+        $BelNummer = $Kurztext.Substring(0,5)
+        $Verlinkt = $Abrechnung -replace $BelNummer,'' | Select-String '\d{3,3} \d{1,1}' -AllMatches
+        If ($Verlinkt) {
+            $Verlinkt = ($Verlinkt.Matches).Value
+        } else {
+            $Verlinkt = $null
+        }
+        [PSCustomObject]@{BelNummer=$BelNummer
+                         ;Bezeichnung=($Bezeichnung -replace $BelNummer,'')
+                         ;Kurztext=($Kurztext -replace $BelNummer,'').Trim()
+                         ;Leistungsinhalt=$Leistungsinhalt
+                         ;Abrechnung=$Abrechnung
+                         ;Verlinkt=$Verlinkt}    
+    } # Process
 }
 
 # Anwendung

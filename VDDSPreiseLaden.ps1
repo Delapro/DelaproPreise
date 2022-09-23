@@ -274,6 +274,7 @@ Function ConvertFrom-BEL2Beschreibung {
             } else {
                 # absoluter Sonderfall, keine Leistungs- und Abrechungsbeschreibung
                 $TeilText = $BlockLines[-1].Trim()
+                $BeginLine = $BlockLines.Length
             }
         }
         $Kurztext = $Teiltext
@@ -294,7 +295,9 @@ Function ConvertFrom-BEL2Beschreibung {
         } else {
             # evtl. Sonderfall weil es keine Erläuterung zur Abrechnung gibt
             $LastLine = $Blocklines.Length-1
-            $Teiltext = ($BlockLines[$BeginLine..$LastLine] | Out-String).Trim()
+            If ($BeginLine -le $LastLine) {
+                $Teiltext = ($BlockLines[$BeginLine..$LastLine] | Out-String).Trim()
+            }
         }
         $Leistungsinhalt = $Teiltext
   

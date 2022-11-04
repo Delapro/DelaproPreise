@@ -18,3 +18,5 @@ $k.kzv|select Kurzname, kzvnummer, @{N='CSVName';E={$_.PreisCSVLink.Segments[-1]
 # eine bestimmte KZV auswählen
 $kzv = $k.kzv|where name -eq "Thüringen"
 
+"$PSHost.Ui.RawUI:"
+$pshost.ui.rawui

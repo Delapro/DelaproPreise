@@ -4,9 +4,9 @@ $k=[kzven]::new()
 $k.kzv|select kzvnummer, Name, Homepage | sort-object kzvnummer
 "Nach Name sortiert:"
 $k.kzv|select kzvnummer, Name, Homepage | sort-object Name
-"Nach Kurzname sortiert:"
+"Nach Kurzname sortiert mit CSVLink:"
 $k.kzv|select Kurzname, PreisCSVLink | sort-object Kurzname
-"Nach Kurzname sortiert mit CSV-Link:"
+"Nach Kurzname sortiert mit CSV-Dateiname:"
 $k.kzv|select Kurzname, kzvnummer, @{N='CSVName';E={$_.PreisCSVLink.Segments[-1]}} | sort-object Kurzname
 
 # Preise können generell von KZV, Innung, oder Softwarehersteller kommen

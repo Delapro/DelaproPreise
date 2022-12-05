@@ -197,7 +197,7 @@ class KZVen {
         # KFO: https://www.kzvb.de/fileadmin/user_upload/Abrechnung/BEL/BEL_Preise_KFO_KB_012021.pdf
         $this.KZV[1] = [KZV]::new('Bayern', 'Baye', '11', 'https://www.kzvb.de/', 'https://www.kzvb.de/abrechnung/bel-preise', 'https://www.kzvb.de/fileadmin/user_upload/Abrechnung/BEL/11la0121.csv', 'https://www.kzvb.de/fileadmin/user_upload/Abrechnung/BEL/BEL_Preise_ZE_012021.pdf')
 
-        $this.KZV[2] = [KZV]::new('Berlin', 'Berl', '30', 'https://www.kzv-berlin.de/', 'https://www.kzv-berlin.de/praxis-service/abrechnung/bel-ii-laborpreise/', 'https://www.kzv-berlin.de/fileadmin/user_upload/Praxis-Service/1_Abrechnung/8_BEL_II__Laborpreise/30la0121.csv', 'https://www.kzv-berlin.de/fileadmin/user_upload/Praxis-Service/1_Abrechnung/8_BEL_II__Laborpreise/Laborpreise_ab_2021_01_01.pdf')
+        $this.KZV[2] = [KZV]::new('Berlin', 'Berl', '30', 'https://www.kzv-berlin.de/', 'https://www.kzv-berlin.de/praxis-service/abrechnung/bel-ii-laborpreise/', 'https://www.kzv-berlin.de/fileadmin/user_upload/Praxis-Service/1_Abrechnung/8_BEL_II__Laborpreise/30la0222.csv', 'https://www.kzv-berlin.de/fileadmin/user_upload/Praxis-Service/1_Abrechnung/8_BEL_II__Laborpreise/Laborpreise_ab_2022_02_01.pdf')
         $this.KZV[3] = [KZV]::new('Brandenburg', 'Bran', '53', 'https://www.kzvlb.de/', 'https://verwaltung.kzvlb.de/info.php', 'https://verwaltung.kzvlb.de/sw/53la0121.csv', 'https://verwaltung.kzvlb.de/sw/BEL_II_2101.pdf')
         $this.KZV[4] = [KZV]::new('Bremen', 'Brem', '31', 'https://www.kzv-bremen.de/', 'https://www.kzv-bremen.de/praxis/abrechnung/bel', 'https://www.kzv-bremen.de/praxis/abrechnung/files/31la0121.csv', 'https://www.kzv-bremen.de/praxis/files/21_zahntechnikvertraege.pdf')
         # TODO: Hamburg hat Splitting von ZE und KFO!!

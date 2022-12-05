@@ -192,13 +192,13 @@ class KZVen {
 
         # TODO: Verweise auf CSV- und PDF-Preislisten entkoppeln, damit die Jahre zugeordnet werden können
         # TODO: Splitting von CSV- und PDF-Preislisten nach ZE und KFO vorsehen, z. B. hat Bayern in 2020 zwei PDF-Dateien obwohl nur eine CSV
-        $this.KZV[0] = [KZV]::new('Baden-Württemberg', 'BaWu', '02', 'http://www.kzvbw.de/site/', '', '')
+        $this.KZV[0] = [KZV]::new('Baden-Württemberg', 'BaWu', '02', 'https://www.kzvbw.de/', '', '')
 
         # KFO: https://www.kzvb.de/fileadmin/user_upload/Abrechnung/BEL/BEL_Preise_KFO_KB_012021.pdf
         $this.KZV[1] = [KZV]::new('Bayern', 'Baye', '11', 'https://www.kzvb.de/', 'https://www.kzvb.de/abrechnung/bel-preise', 'https://www.kzvb.de/fileadmin/user_upload/Abrechnung/BEL/11la0121.csv', 'https://www.kzvb.de/fileadmin/user_upload/Abrechnung/BEL/BEL_Preise_ZE_012021.pdf')
 
         $this.KZV[2] = [KZV]::new('Berlin', 'Berl', '30', 'https://www.kzv-berlin.de/', 'https://www.kzv-berlin.de/praxis-service/abrechnung/bel-ii-laborpreise/', 'https://www.kzv-berlin.de/fileadmin/user_upload/Praxis-Service/1_Abrechnung/8_BEL_II__Laborpreise/30la0121.csv', 'https://www.kzv-berlin.de/fileadmin/user_upload/Praxis-Service/1_Abrechnung/8_BEL_II__Laborpreise/Laborpreise_ab_2021_01_01.pdf')
-        $this.KZV[3] = [KZV]::new('Brandenburg', 'Bran', '53', 'http://www.kzvlb.de/', 'https://verwaltung.kzvlb.de/info.php', 'https://verwaltung.kzvlb.de/sw/53la0121.csv', 'https://verwaltung.kzvlb.de/sw/BEL_II_2101.pdf')
+        $this.KZV[3] = [KZV]::new('Brandenburg', 'Bran', '53', 'https://www.kzvlb.de/', 'https://verwaltung.kzvlb.de/info.php', 'https://verwaltung.kzvlb.de/sw/53la0121.csv', 'https://verwaltung.kzvlb.de/sw/BEL_II_2101.pdf')
         $this.KZV[4] = [KZV]::new('Bremen', 'Brem', '31', 'https://www.kzv-bremen.de/', 'https://www.kzv-bremen.de/praxis/abrechnung/bel', 'https://www.kzv-bremen.de/praxis/abrechnung/files/31la0121.csv', 'https://www.kzv-bremen.de/praxis/files/21_zahntechnikvertraege.pdf')
         # TODO: Hamburg hat Splitting von ZE und KFO!!
         $this.KZV[5] = [KZV]::new('Hamburg', 'Hamb', '32', 'https://www.zahnaerzte-hh.de/', 'https://www.zahnaerzte-hh.de/zahnaerzte-portal/praxis/abrechnung/kassenabrechnung-kzv/punktwerte-laborpreise-bel-materialkosten/', 'https://www.zahnaerzte-hh.de/zahnaerzte-portal/mediathek/download-center/geschuetztes-dokument/file/download/36337/', 'https://www.zahnaerzte-hh.de/zahnaerzte-portal/mediathek/download-center/geschuetztes-dokument/file/download/36331/')
@@ -207,7 +207,7 @@ class KZVen {
         # MeVo: die Preise sind unter BKV-Download zu finden!
         $this.KZV[7] = [KZV]::new('Mecklenburg-Vorpommern', 'MeVo', '52', 'https://www.kzvmv.de/', 'https://www.kzvmv.de/bkv-download/', 'https://www.kzvmv.de/dokumente/52la0121.csv')
         $this.KZV[8] = [KZV]::new('Niedersachsen', 'Nisa', '04', 'https://www.kzvn.de/', '', '')
-        $this.KZV[9] = [KZV]::new('Nordrhein', 'Nord', '13', 'http://www.kzvnr.de/', '', '')
+        $this.KZV[9] = [KZV]::new('Nordrhein', 'Nord', '13', 'https://www.kzvnr.de/', '', '')
         # WL dazu noch KFO: https://www.zahnaerzte-wl.de/images/kzvwl/praxisteam/abrechnung/aktuelle-abrechnungsinfos-fuer-vertragszahnaerzte/Laborpreisliste_KFO_2021.pdf
         $this.KZV[10] = [KZV]::new('Westfalen-Lippe', 'West', '37', 'https://www.zahnaerzte-wl.de/', 'https://www.zahnaerzte-wl.de/praxisteam/abrechnung/aktuelle-abrechnungsinfos-fuer-vertragszahnaerzte.html', 'https://www.zahnaerzte-wl.de/images/kzvwl/praxisteam/abrechnung/aktuelle-abrechnungsinfos-fuer-vertragszahnaerzte/37la0121.csv', 'https://www.zahnaerzte-wl.de/images/kzvwl/praxisteam/abrechnung/aktuelle-abrechnungsinfos-fuer-vertragszahnaerzte/Laborpreisliste_ZE_2021.pdf')
         # alte Preise 2019 RPF: https://www.kzvrlp.de/fileadmin/KZV/Downloads/Mitglieder/Abrechnung/Aktuelles/BEL-Preise/06la0119.csv
@@ -222,7 +222,7 @@ class KZVen {
         $this.KZV[14].RequestHeaders = @{"Accept-Language"="de-DE,de;q=0.9,en-US;q=0.8,en;q=0.7"}
 
         # KFO: https://www.kzv-sh.de/wp-content/uploads/2021/01/BEL-II-Preislisten-KFO-01.01.2021-Gewerbelabor.pdf
-        $this.KZV[15] = [KZV]::new('Schleswig-Holstein', 'SHol', '36', 'http://www.kzv-sh.de/', 'https://www.kzv-sh.de/fuer-die-praxis/abrechnung/bel-ii/', 'https://www.kzv-sh.de/wp-content/uploads/2021/01/36la0121.csv', 'https://www.kzv-sh.de/wp-content/uploads/2021/01/BEL-II-Preislisten-Regelversorgung-01.01.2021-Gewerbelabor.pdf')
+        $this.KZV[15] = [KZV]::new('Schleswig-Holstein', 'SHol', '36', 'https://www.kzv-sh.de/', 'https://www.kzv-sh.de/fuer-die-praxis/abrechnung/bel-ii/', 'https://www.kzv-sh.de/wp-content/uploads/2021/01/36la0121.csv', 'https://www.kzv-sh.de/wp-content/uploads/2021/01/BEL-II-Preislisten-Regelversorgung-01.01.2021-Gewerbelabor.pdf')
         $this.KZV[16] = [KZV]::new('Thüringen', 'Thue', '55', 'https://www.kzvth.de/', 'https://www.kzvth.de/bel-beb', 'https://www.kzvth.de/services/asset/KZVTh/Downloadbereich/BEL/BEL%202021/55la0121.csv', 'https://www.kzvth.de/services/asset/KZVTh/Downloadbereich/BEL/BEL%202021/Bel_II_Kurzversion_ab_01012021_KZV.pdf')
     }
 }

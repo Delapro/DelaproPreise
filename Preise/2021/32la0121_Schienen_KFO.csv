@@ -1,0 +1,86 @@
+Kürzel;NR;Kassenart;Kurzbezeichnung;Fremdlabor;Eigenlabor
+0010;0010;0;Modell;6,99;6,64
+0021;0021;0;Doublieren eines Modells;14,27;13,56
+0030;0030;0;Set-up je Segment;10,38;9,86
+0054;0054;0;Set-up Model für KFO;11,76;11,17
+0060;0060;0;Zahnkranz;5,68;5,40
+0070;0070;0;Zahnkranz sockeln;6,00;5,70
+0111;0111;0;Modellpaar trimmen;10,00;9,50
+0112;0112;0;Fixator;9,09;8,64
+0120;0120;0;Mittelwertartikulator;10,23;9,72
+0130;0130;0;Modellpaar sockeln;23,73;22,54
+0202;0202;0;Basis für Konstruktionsbiss;8,69;8,26
+0213;0213;0;Basis für Bissregistrierung;23,88;22,69
+0220;0220;0;Bisswall;6,88;6,54
+1550;1550;0;Konditionierung je Zahn/Flügel;14,51;13,78
+1600;1600;0;Vestibuläre Verblendung Kunststoff;49,80;47,31
+1610;1610;0;Zahnfleisch Kunststoff;15,84;15,05
+1640;1640;0;Vestibuläre Verblendung Komposit;77,83;73,94
+1650;1650;0;Zahnfleisch Komposit;21,08;20,03
+2010;2010;0;Metallbasis;148,68;141,25
+2021;2021;0;Einarmige gegossene Haltevorrichtung;12,72;12,08
+2025;2025;0;Kralle;12,72;12,08
+2026;2026;0;Ney-Stiel;12,72;12,08
+2027;2027;0;Auflage;12,72;12,08
+2028;2028;0;Umgehungsbügel bei Diastema;12,72;12,08
+2031;2031;0;Zweiarmige gegossene Haltevorrichtung;23,33;22,16
+2041;2041;0;Zweiarmige gegossene Halte- und Stützvorrichtung/Auflage;31,49;29,92
+2050;2050;0;Bonwillklammer;57,48;54,61
+2081;2081;0;Rückenschutzplatte;41,60;39,52
+2082;2082;0;Metallzahn, gegossen;41,60;39,52
+2083;2083;0;Metallkaufläche, gegossen;41,60;39,52
+2120;2120;0;Zuschlag einzelne gegossene Klammer;19,97;18,97
+3020;3020;0;Aufstellen Wachs od. Kunststoff je Zahn;1,87;1,78
+3030;3030;0;Aufstellen Metall je Zahn;2,45;2,33
+3620;3620;0;Fertigstellen je Zahn;3,38;3,21
+3800;3800;0;Einfache gebogene Halte-/Stützvorrichtung;10,35;9,83
+3805;3805;0;Gebogene Auflage;10,35;9,83
+3810;3810;0;Sonstige geb. Halte- und/oder Stützvor.;17,53;16,65
+3821;3821;0;Weichkunststoff;56,33;53,51
+3822;3822;0;Sonderkunststoff;56,33;53,51
+3830;3830;0;Zahn zahnfarben hergestellt;23,84;22,65
+3840;3840;0;Zahn zahnfarben hinterlegt;12,47;11,85
+4010;4010;0;Aufbissbehelf m. adj. Oberfläche;102,35;97,23
+4020;4020;0;Aufbissbehelf o. adj. Oberfläche;78,33;74,41
+4030;4030;0;Umarbeiten zum Aufbissbehelf;53,31;50,64
+4040;4040;0;Semipermanente Schiene;33,51;31,83
+7010;7010;0;Basis für Einzelkiefergerät;62,06;58,96
+7020;7020;0;Basis bimaxilläres Gerät;110,57;105,04
+7030;7030;0;Schiefe Ebene;50,60;48,07
+7040;7040;0;Vorhofplatte;70,35;66,83
+7050;7050;0;Kinnkappe;63,29;60,13
+7100;7100;0;Aufbiss;10,80;10,26
+7110;7110;0;Abschirmelement;21,54;20,46
+7121;7121;0;Weichkunststoff (KFO);31,31;29,74
+7122;7122;0;Sonderkunststoff (KFO);56,28;53,47
+7200;7200;0;Schraube einarbeiten;17,99;17,09
+7210;7210;0;Spezial-Schraube einarbeiten;24,66;23,43
+7220;7220;0;Trennen einer Basis;7,56;7,18
+7300;7300;0;Labialbogen;21,17;20,11
+7310;7310;0;Labialbogen modifiziert;31,61;30,03
+7320;7320;0;Labialbogen intramaxillär;37,31;35,44
+7330;7330;0;Feder, offen;9,32;8,85
+7340;7340;0;Feder, geschlossen;13,62;12,94
+7400;7400;0;Verbindungselement, intramaxillär;27,26;25,90
+7410;7410;0;Verbindungselement, intermaxillär;28,73;27,29
+7420;7420;0;Verankerungselement;22,99;21,84
+7430;7430;0;Einzelement einarbeiten;12,51;11,88
+7440;7440;0;Metallverbindung (KFO);13,64;12,96
+7500;7500;0;Einarmiges H-/A-Element;10,75;10,21
+7510;7510;0;Mehrarmiges H-/A-Element;16,89;16,05
+8021;8021;0;LE Sprung;8,79;8,35
+8022;8022;0;LE Bruch;8,79;8,35
+8023;8023;0;LE Einarbeiten Zahn;8,79;8,35
+8024;8024;0;LE Basisteil Kunststoff;8,79;8,35
+8025;8025;0;LE Halte- und/oder Stützvor. einarbeiten;8,79;8,35
+8026;8026;0;LE Rückenschutzplatte einarbeiten;8,79;8,35
+8027;8027;0;LE Kunststoffsattel;8,79;8,35
+8080;8080;0;Teilunterfütterung einer Basis;37,25;35,39
+8090;8090;0;Vollständige Unterfütterung;59,87;56,88
+8610;8610;0;Grundeinheit/Instands. KFO od. Aufbissbehelf;19,01;18,06
+8620;8620;0;LE Einfügen Regul.- od. Halteelement;8,39;7,97
+8630;8630;0;LE Erneuerung eines Elementes/interm.;14,38;13,66
+8640;8640;0;KFO-Basis erneuern;62,47;59,35
+8700;8700;0;Remontieren KFO-Gerät;57,51;54,63
+9330;9330;0;Versandkosten;5,92;
+9700;9700;0;Verarbeitungsaufwand NEM-Legierung;14,24;13,53

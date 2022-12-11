@@ -183,6 +183,7 @@ class KZV {
     }
     
     [string]GetCSVName () {
+        $CsvName = ""
         If ($this.PreisCSVLink.Segments.Length -gt 0) {
             $CsvName = $this.PreisCSVLink.Segments[-1]
             If (-Not ($CsvName -match '\.csv')) {

@@ -181,6 +181,19 @@ class KZV {
     [uri[]]GetCSVPreiseLinks () {
         return GetAllLinksForFileExtension -root $this.Homepage -site $this.HomepagePreise -fileExtension '.csv'
     }
+    
+    [string]GetCSVName () {
+        If ($this.PreisCSVLink.Segments.Length -gt 0) {
+            $CsvName = $this.PreisCSVLink.Segments[-1]
+            If (-Not ($CsvName -match '\.csv')) {
+                # Prüfen, ob es ein CSV-Dateiname mittels Header ausgelesen werden kann
+                $r = Invoke-WebRequest $this.PreisCSVLink -UseBasicParsing
+                $disposition = [System.Net.Mime.ContentDisposition]::new($r.Headers.'Content-Disposition')
+                $CsvName = $disposition.Parameters['filename']
+            }
+        }
+        return $CsvName
+    }
 }
 
 class KZVen {

@@ -33,6 +33,7 @@ $LeistungsgruppenBEL2 = @{'Arbeitsvorbereitung'=0
     ;'Materialien und Sonstiges'=9
 }
 
+# ermittelt alle Href Links auf einer HTML-Seite die eine bestimmte Dateiendung haben
 Function GetAllLinksForFileExtension {
     [CmdletBinding()]
     [OutputType([uri[]])]
@@ -171,10 +172,12 @@ class KZV {
         return $erg
     }
 
+    # gibt alle Links zu PDF-Dateien zurück
     [uri[]]GetPDFPreiseLinks () {
         return GetAllLinksForFileExtension -root $this.Homepage -site $this.HomepagePreise -fileExtension '.pdf'
     }
 
+    # gibt alle Links zu CSV-Dateien zurück
     [uri[]]GetCSVPreiseLinks () {
         return GetAllLinksForFileExtension -root $this.Homepage -site $this.HomepagePreise -fileExtension '.csv'
     }

@@ -222,7 +222,7 @@ class KZVen {
         $this.KZV[6] = [KZV]::new('Hessen', 'Hess', '20', 'https://www.kzvh.de/index.html', 'https://www.kzvh.de/BEL-Preisliste/index.html', 'https://www.kzvh.de/wcm/idc/groups/public/documents/web/mdiw/bgew/~edisp/20la0122.csv')
 
         # MeVo: die Preise sind unter BKV-Download zu finden!
-        $this.KZV[7] = [KZV]::new('Mecklenburg-Vorpommern', 'MeVo', '52', 'https://www.kzvmv.de/', 'https://www.kzvmv.de/bkv-download/', 'https://www.kzvmv.de/dokumente/52la0121.csv')
+        $this.KZV[7] = [KZV]::new('Mecklenburg-Vorpommern', 'MeVo', '52', 'https://www.kzvmv.de/', 'https://www.kzvmv.de/bkv-download/', 'https://www.kzvmv.de/dokumente/52la0122.csv')
         $this.KZV[8] = [KZV]::new('Niedersachsen', 'Nisa', '04', 'https://www.kzvn.de/', '', '')
         $this.KZV[9] = [KZV]::new('Nordrhein', 'Nord', '13', 'https://www.kzvnr.de/', '', '')
         # WL dazu noch KFO: https://www.zahnaerzte-wl.de/images/kzvwl/praxisteam/abrechnung/aktuelle-abrechnungsinfos-fuer-vertragszahnaerzte/Laborpreisliste_KFO_2021.pdf

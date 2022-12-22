@@ -1,9 +1,6 @@
-Kürzel;Nr.;Bezeichnung;Kassenart;PreisPraxislabor;PreisGewerbelabor;PreisZEPraxislabor;PreisZEGewerbelabor;PreisKFOPraxislabor;PreisKFOGewerbelabor;PreisKBPraxislabor;PreisKBGewerbelabor;PreisPAPraxislabor;PreisPAGewerbelabor
-;;;;;;;;;;;;;
-;;;;;;;;;;;;;
+Kuerzel;Nr.;Bezeichnung;Kassenart;PreisPraxislabor;PreisGewerbelabor;PreisZEPraxislabor;PreisZEGewerbelabor;PreisKFOPraxislabor;PreisKFOGewerbelabor;PreisKBPraxislabor;PreisKBGewerbelabor;PreisPAPraxislabor;PreisPAGewerbelabor
 0010;0010;Modell;0;6,79;7,15;;;;;;;;
 0015;0015;Modell UKPS;0;6,79;7,15;;;;;;;;
 0018;0018;Modell bei Implantatversorgung;0;6,79;7,15;;;;;;;;
 0021;0021;Doublieren eines Modells;0;12,6;13,26;;;;;;;;
-0022;0022;Platzhalter einfügen;0;13,78;14,5;;;;;;;;
 0023;0023;Verwendung von Kunststoff;0;13,78;14,5;;;;;;;;

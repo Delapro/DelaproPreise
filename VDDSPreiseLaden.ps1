@@ -33,6 +33,30 @@ $LeistungsgruppenBEL2 = @{'Arbeitsvorbereitung'=0
     ;'Materialien und Sonstiges'=9
 }
 
+$VDDSHeader = @('Kuerzel'
+               ,'Nr'
+               ,'Bezeichnung'
+               ,'Kassenart'
+               ,'Kons Praxis'   # oder KCH Praxis
+               ,'Kons Gewerbe'  # oder KCH Gewerbe
+               ,'ZE Praxis'
+               ,'ZE Gewerbe'
+               ,'KFO Praxis'
+               ,'KFO Gewerbe'
+               ,'KB Praxis'
+               ,'KB Gewerbe'
+               ,'PA Praxis'
+               ,'PA Gewerbe'
+)
+
+$VDDSHeaderKurz = @('Kuerzel'
+                   ,'Nr'
+                   ,'Bezeichnung'
+                   ,'Kassenart'
+                   ,'Kons Praxis'   # oder KCH Praxis
+                   ,'Kons Gewerbe'  # oder KCH Gewerbe
+)
+
 # ermittelt alle Href Links auf einer HTML-Seite die eine bestimmte Dateiendung haben
 Function GetAllLinksForFileExtension {
     [CmdletBinding()]

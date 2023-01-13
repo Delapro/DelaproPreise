@@ -272,7 +272,7 @@ class KZVen {
 Function ConvertTo-BEL2BeschreibungsBlock {
    [CmdletBinding()]
     Param(
-        [Parameter(Mandatory,ValueFromPipeline)]
+        [Parameter(Mandatory)]  # ValueFromPipeline ist noch nicht pipelinefähig!
         [String[]]$Text   # Text von z. B. Get-Content
     )
     

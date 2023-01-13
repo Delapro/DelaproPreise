@@ -268,6 +268,11 @@ class KZVen {
     }
 }
 
+# Vorbereitung für ConvertFrom-Bel2Beschreibung
+# $treffer=$text|Select-String 'Leistungsinhalt\s*L-Nr.'
+# $textblock=@();$index=1;foreach($t in $treffer) {if ($index -lt $treffer.length) {$texttemp=($text[($t.Linenumber)..(($treffer[$index].lineNumber)-2)]|out-string).Trim();If($texttemp -match 'Seite .{1,3} von .{3,3}') {$texttemp=($text[($t.Linenumber)..(($treffer[$index].lineNumber)-4)]|out-string).Trim()}; $textblock+=$texttemp}; $index++}
+
+
 # Funktion zum Auslesen der Leistungsbeschreibungen aus den offizellen Beschreibungen
 Function ConvertFrom-BEL2Beschreibung {
     [CmdletBinding()]

@@ -269,15 +269,25 @@ class KZVen {
 }
 
 # Vorbereitung für ConvertFrom-Bel2Beschreibung
-# $treffer=$text|Select-String 'Leistungsinhalt\s*L-Nr.'
-# $textblock=@();$index=1;foreach($t in $treffer) {if ($index -lt $treffer.length) {$texttemp=($text[($t.Linenumber)..(($treffer[$index].lineNumber)-2)]|out-string).Trim();If($texttemp -match 'Seite .{1,3} von .{3,3}') {$texttemp=($text[($t.Linenumber)..(($treffer[$index].lineNumber)-4)]|out-string).Trim()}; $textblock+=$texttemp}; $index++}
-
+Function ConvertTo-BEL2BeschreibungsBlock {
+   [CmdletBinding()]
+    Param(
+        [Parameter(Mandatory,ValueFromPipeline)]
+        [String[]]$Text   # Text von z. B. Get-Content
+    )
+    
+    $treffer=$Text|Select-String 'Leistungsinhalt\s*L-Nr.'
+    $Textblock=@()
+    $index=1;foreach($t in $treffer) {if ($index -lt $treffer.length) {$texttemp=($Text[($t.Linenumber)..(($treffer[$index].lineNumber)-2)]|out-string).Trim();If($texttemp -match 'Seite .{1,3} von .{3,3}') {$texttemp=($text[($t.Linenumber)..(($treffer[$index].lineNumber)-4)]|out-string).Trim()}; $texttemp.PSObject.TypeNames.Insert(0,"BEL2BeschreibungsBlock"); $Textblock+=$texttemp}; $index++}
+    $Textblock
+}
 
 # Funktion zum Auslesen der Leistungsbeschreibungen aus den offizellen Beschreibungen
 Function ConvertFrom-BEL2Beschreibung {
     [CmdletBinding()]
     Param(
         [Parameter(Mandatory,ValueFromPipeline)]
+        #[PSTypeName('BEL2BeschreibungsBlock')]$Block
         [String]$Block
     )
   

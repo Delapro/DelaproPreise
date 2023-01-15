@@ -442,3 +442,4 @@ Function Get-Bel2Verzeichnis {
 # $bel2017=Get-Bel2Verzeichnis .\07-2017_BEL_II_-_2014.pdf
 # $bel2020=Get-Bel2Verzeichnis .\BEL_II_-_2014_-_ab_01.01.2020.pdf
 # $bel2022=Get-Bel2Verzeichnis .\BEL_II_01_01_2022.pdf
+# Compare-Bel2Verzeichnis $bel2020 $bel2022 | sort BelNummer

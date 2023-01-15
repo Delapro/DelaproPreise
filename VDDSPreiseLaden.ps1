@@ -278,7 +278,21 @@ Function ConvertTo-BEL2BeschreibungsBlock {
     
     $treffer=$Text|Select-String 'Leistungsinhalt\s*L-Nr.'
     $Textblock=@()
-    $index=1;foreach($t in $treffer) {if ($index -lt $treffer.length) {$texttemp=($Text[($t.Linenumber)..(($treffer[$index].lineNumber)-2)]|out-string).Trim();If($texttemp -match 'Seite .{1,3} von .{3,3}') {$texttemp=($text[($t.Linenumber)..(($treffer[$index].lineNumber)-4)]|out-string).Trim()}; $texttemp.PSObject.TypeNames.Insert(0,"BEL2BeschreibungsBlock"); $Textblock+=$texttemp}; $index++}
+    $index=1
+    foreach($t in $treffer) {
+        if ($index -lt $treffer.length) {
+            $texttemp=($Text[($t.Linenumber)..(($treffer[$index].lineNumber)-2)]|out-string).Trim()
+            If($texttemp -match 'Seite .{1,3} von .{3,3}') {
+                $texttemp=($text[($t.Linenumber)..(($treffer[$index].lineNumber)-4)]|out-string).Trim()
+            }
+            If($texttemp -match '\d{1,3}$') {
+                $texttemp=($texttemp[0..($texttemp.length-$Matches.Values.Length-1)] -Join '').Trim()
+            }
+            $texttemp.PSObject.TypeNames.Insert(0,"BEL2BeschreibungsBlock")
+            $Textblock+=$texttemp
+        }
+        $index++
+    }
     $Textblock
 }
 
@@ -307,7 +321,7 @@ Function ConvertFrom-BEL2Beschreibung {
             $Teiltext = ($BlockLines[$BeginLine..$LastLine] | % {$_.Trim()} | Out-String).Trim()
             $BeginLine = $LastLine +2 # um die unnötigen Zeilen wegzubekommen
         }
-        $Bezeichnung = $Teiltext
+        $Bezeichnung = $Teiltext.Trim()
   
         $Teiltext = ""
         $Pos = $BlockLines | Select-String 'Erläuterung(?:en)? zum Leistungsinhalt'
@@ -384,3 +398,47 @@ Function ConvertFrom-BEL2Beschreibung {
     } # Process
 }
 
+Function Compare-Bel2Verzeichnis {
+    [CmdletBinding()]
+    Param(
+        $BelVz1,
+        $BelVz2
+    )
+
+    # identische Leistungen ermitteln
+    $diff=diff $BelVz1 $BelVz2 -Property belnummer
+    foreach ($Leistung in $diff) {
+        If ($Leistung.SiteIndicator -eq '=>') {
+            [PSCustomObject]@{BelNummer=$Leistung.Belnummer;Status='-';Diff=$null}
+        } else {
+            [PSCustomObject]@{BelNummer=$Leistung.Belnummer;Status='+';Diff=$null}
+        }
+    }
+    $beltemp=$BelVz2|where {$diff.belnummer -NotContains $_.belnummer}
+    # Leistungen ermitteln, wo es differenzen gibt
+    $Properties = ($BelVz1[0].PSObject.Properties).Name
+    $diffprop=diff $BelVz1 $beltemp -Property $Properties
+    foreach($Leistung in ($diffprop|select -Unique belnummer)) {
+        $l1 = $BelVz1|where belnummer -eq $Leistung.Belnummer
+        $l2 = $beltemp|where belnummer -eq $Leistung.Belnummer
+        [PSCustomObject]@{BelNummer=$Leistung.Belnummer;Status='#';Diff=($Properties|% {diff $l1 $l2 -Property $_})}
+    }
+}
+
+Function Get-Bel2Verzeichnis {
+    Param(
+        [string]$Path
+    )
+
+    $text = Invoke-PDFTextExtraction -PdfFile $Path -OptArgs "-dQUIET"
+    $blöcke = ConvertTo-BEL2BeschreibungsBlock $text   
+    $bel2 = $blöcke| ConvertFrom-Bel2Beschreibung 
+    $bel2
+    
+}
+
+# $bel2006=Get-Bel2Verzeichnis .\Zahntechniker_LV_Bel_2_2006_2.pdf
+# $bel2014=Get-Bel2Verzeichnis .\33_BEL_II_-_2014.pdf
+# $bel2017=Get-Bel2Verzeichnis .\07-2017_BEL_II_-_2014.pdf
+# $bel2020=Get-Bel2Verzeichnis .\BEL_II_-_2014_-_ab_01.01.2020.pdf
+# $bel2022=Get-Bel2Verzeichnis .\BEL_II_01_01_2022.pdf

@@ -243,7 +243,7 @@ class KZVen {
         $this.KZV[4] = [KZV]::new('Bremen', 'Brem', '31', 'https://www.kzv-bremen.de/', 'https://www.kzv-bremen.de/praxis/abrechnung/bel', 'https://www.kzv-bremen.de/praxis/abrechnung/files/31la0122.csv', 'https://www.kzv-bremen.de/praxis/files/21_zahntechnikvertraege.pdf')
         # TODO: Hamburg hat Splitting von ZE und KFO!!
         $this.KZV[5] = [KZV]::new('Hamburg', 'Hamb', '32', 'https://www.zahnaerzte-hh.de/', 'https://www.zahnaerzte-hh.de/zahnaerzte-portal/praxis/abrechnung/kassenabrechnung-kzv/punktwerte-laborpreise-bel-materialkosten/', 'https://www.zahnaerzte-hh.de/zahnaerzte-portal/mediathek/download-center/geschuetztes-dokument/file/download/56271/', 'https://www.zahnaerzte-hh.de/zahnaerzte-portal/mediathek/download-center/geschuetztes-dokument/file/download/36331/')
-        $this.KZV[6] = [KZV]::new('Hessen', 'Hess', '20', 'https://www.kzvh.de/index.html', 'https://www.kzvh.de/BEL-Preisliste/index.html', 'https://www.kzvh.de/wcm/idc/groups/public/documents/web/mdiw/bgew/~edisp/20la0122.csv')
+        $this.KZV[6] = [KZV]::new('Hessen', 'Hess', '20', 'https://www.kzvh.de/index.html', 'https://www.kzvh.de/BEL-Preisliste/index.html', 'https://www.kzvh.de/wcm/idc/groups/public/documents/web/mdiw/bgew/~edisp/20la0123.csv')
 
         # MeVo: die Preise sind unter BKV-Download zu finden!
         $this.KZV[7] = [KZV]::new('Mecklenburg-Vorpommern', 'MeVo', '52', 'https://www.kzvmv.de/', 'https://www.kzvmv.de/bkv-download/', 'https://www.kzvmv.de/dokumente/52la0123.csv', 'https://www.kzvmv.de/export/sites/kzvmv/dokumente/rbr_01_2023_anl_bel2_regel.pdf')

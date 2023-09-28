@@ -19,6 +19,7 @@ relevante Links:
 * [Schreiben BMG Veränderungsrate für 2021](https://www.bundesanzeiger.de/pub/publication/KCtDrcOMahVUZKeWLnk/content/KCtDrcOMahVUZKeWLnk/BAnz%20AT%2011.09.2020%20B2.pdf?inline)
 * [Schreiben BMG Veränderungsrate für 2022](https://www.bundesanzeiger.de/pub/publication/gOL0qJyaska4by9NFJi/content/gOL0qJyaska4by9NFJi/BAnz%20AT%2010.09.2021%20B2.pdf?inline)
 * [Schreiben BMG Veränderungsrate für 2023](https://www.bundesanzeiger.de/pub/publication/bxPTMExTJfsRp5Xekuz/content/bxPTMExTJfsRp5Xekuz/BAnz%20AT%2009.09.2022%20B2.pdf?inline)
+* [Schreiben BMG Veränderungsrate für 2024](https://www.bundesanzeiger.de/pub/publication/XyRYyeyeELIFubt7MQ9/content/XyRYyeyeELIFubt7MQ9/BAnz%20AT%2015.09.2023%20B3.pdf?inline)
 
 Hinweis zum Bundesmittelpreis und der +/- 5 Prozentgeschichte, diese ist nur für Regelleistungen nach §57 definiert (https://www.gesetze-im-internet.de/sgb_5/__57.html), bei Schienen usw. nach §88 gilt die 5%-Klausel nicht (https://www.gesetze-im-internet.de/sgb_5/__88.html). Aus diesem Grund sind bei den Bundesmittelpreislisten auch keine Schienen usw. aufgeführt.
 

@@ -1,0 +1,176 @@
+BEL_KNR;BEL_NR;LEIST_BEZ;KAS_ART;PL_EUR;GL_EUR
+0010;0010;Modell;0;7,04;7,41
+0018;0018;Modell bei Implantatversorgung;0;6,84;7,20
+0021;0021;Doublieren;0;14,30;15,05
+0022;0022;Platzhalter einfügen;0;14,48;15,24
+0023;0023;Verwendung von Kunststoff;0;14,57;15,34
+0024;0024;Galvanisieren;0;14,48;15,24
+0030;0030;Set-up ;0;9,38;9,87
+0051;0051;Stumpfmodell/Sägemodell;0;16,22;17,07
+0052;0052;Stumpfmodell/Einzelstumpfmodell;0;16,22;17,07
+0053;0053;Stumpfmodell/Modell nach Überabdruck;0;16,22;17,07
+0054;0054;Stumpfmodell/Set-up Modell;0;10,83;11,40
+0055;0055;Stumpfmodell/Fräsmodell;0;11,04;11,62
+0060;0060;Zahnkranz;0;5,60;5,89
+0070;0070;Zahnkranz sockeln;0;5,90;6,21
+0111;0111;Modellpaar trimmen;0;10,28;10,82
+0112;0112;Fixator;0;8,97;9,44
+0120;0120;Mittelwertartikulator;0;10,34;10,88
+0128;0128;Mittelwertartikulator bei Implantatversorg.;0;10,05;10,58
+0130;0130;Modellpaar sockeln;0;22,92;24,13
+0201;0201;Basis für Vorbissnahme;0;9,36;9,85
+0202;0202;Basis für Konstruktionsbiss;0;7,83;8,24
+0211;0211;Basis Autopolym./Individueller Löffel;0;23,53;24,77
+0212;0212;Basis Autopolym./Funktionslöffel;0;23,53;24,77
+0213;0213;Basis Autopolym./Bissregistrierung;0;23,53;24,77
+0214;0214;Basis Autopolym./Stützstiftregistrierung;0;23,53;24,77
+0215;0215;Basis Autopolym./Kunststoffbasis f. Aufstell.;0;23,53;24,77
+0216;0216;Basis für Bissregistr. bei Implantatversorg.;0;23,37;24,60
+0218;0218;Basis für Aufstellung bei Implantatversorg.;0;23,37;24,60
+0220;0220;Bisswall;0;6,79;7,15
+0228;0228;Bisswall bei Implantatversorgung;0;6,75;7,10
+0230;0230;Registrierplatte und -stift auf Basen;0;30,26;31,85
+0240;0240;Übertragungskappe Kunststoff/Metall;0;25,92;27,28
+0310;0310;Provisorische Krone/Brückenglied;0;34,66;36,48
+0320;0320;Formteil;0;18,78;19,77
+1013;1013;Wurzelstiftkappe;0;80,74;84,99
+1021;1021;Vollkrone, Metall;0;86,78;91,35
+1022;1022;Teilkrone, Metall;0;86,78;91,35
+1023;1023;Flügel für Adhäsivbrücke, je Flügel;0;84,97;89,44
+1024;1024;Krone für vestibuläre Verblendung;0;88,01;92,64
+1026;1026;Vollkrone/Metall bei Implantatversorgung;0;86,19;90,73
+1028;1028;Krone für vestib.Verblendung bei Impl.vers.;0;85,49;89,99
+1031;1031;Vorbereiten Krone/Brückenglied ;0;14,50;15,26
+1032;1032;Krone/Brückenglied einarbeiten;0;14,50;15,26
+1033;1033;Stiftaufbau einarbeiten;0;14,50;15,26
+1040;1040;Modellation gießen;0;18,88;19,87
+1050;1050;Stiftaufbau ;0;57,10;60,10
+1100;1100;Brückenglied;0;62,11;65,38
+1200;1200;Teleskopierende Krone;0;276,45;291,00
+1201;1201;Teleskopierende Primär- o. Sekundärkrone;0;180,44;189,94
+1331;1331;Individuelles Geschiebe- nur bei geteilter Br.;0;225,93;237,82
+1341;1341;Konfektion. Geschiebe- nur bei geteilter Br.;0;111,96;117,85
+1343;1343;Konfektionsanker;0;111,96;117,85
+1347;1347;Primär-/Sekundär-Teil Konfektionsanker;0;74,49;78,41
+1349;1349;Wiederbef. Sekundär-Teil;0;74,49;78,41
+1360;1360;Gefrästes Lager;0;53,80;56,63
+1370;1370;Schubverteilungsarm;0;40,35;42,47
+1500;1500;Metallverbindung nach Brand;0;30,09;31,67
+1550;1550;Konditionierung, je Zahn/Flügel;0;14,34;15,09
+1600;1600;Vestibuläre Verblendung Kunststoff;0;49,13;51,72
+1610;1610;Zahnfleisch Kunststoff;0;15,63;16,45
+1620;1620;Vestibuläre Verblendung Keramik;0;100,93;106,24
+1628;1628;Vestib. Verblendg. Keramik bei Impl.vers.;0;100,24;105,52
+1630;1630;Zahnfleisch Keramik;0;36,07;37,97
+1638;1638;Zahnfleisch Keramik bei Implantatvers.;0;35,82;37,71
+1640;1640;Vestibuläre Verblendung Komposite;0;78,55;82,68
+1650;1650;Zahnfleisch Komposite;0;20,83;21,93
+2010;2010;Metallbasis;0;150,01;157,90
+2021;2021;Einarmige gegossene Haltevorrichtung;0;12,58;13,24
+2025;2025;Kralle;0;12,58;13,24
+2026;2026;Ney-Stiel;0;12,58;13,24
+2027;2027;Auflage;0;12,58;13,24
+2028;2028;Umgehungsbügel bei Diastema;0;12,49;13,15
+2031;2031;Zweiarmige gegossene Haltevorrichtung;0;23,01;24,22
+2041;2041;Zweiarmige geg. Halte- u. Stützvorr./Auflage;0;31,08;32,72
+2050;2050;Bonwillklammer;0;56,71;59,69
+2081;2081;Rückenschutzplatte;0;41,05;43,21
+2082;2082;Metallzahn, gegossen;0;41,05;43,21
+2083;2083;Metallkaufläche, gegossen;0;41,05;43,21
+2100;2100;Lösungshilfe;0;11,88;12,50
+2110;2110;Unterfütterbarer Abschlussrand;0;18,94;19,94
+2120;2120;Zuschlag  einzelne gegossene Klammer;0;19,70;20,74
+3010;3010;Aufstellung Grundeinheit;0;31,60;33,26
+3018;3018;Aufstellung Grundeinh. bei Implantatvers.;0;30,69;32,31
+3020;3020;Aufstellen Wachs o. Kunststoff, je Zahn;0;1,84;1,94
+3028;3028;Aufst. Wachs o. Kunstst., je Zahn b. Implant.;0;1,84;1,94
+3030;3030;Aufstellen Metall, je Zahn;0;2,43;2,56
+3410;3410;Übertragung, je Zahn;0;1,52;1,60
+3610;3610;Fertigstellung Grundeinheit;0;53,05;55,84
+3618;3618;Fertigst. Grundeinheit bei Implantatvers.;0;51,54;54,25
+3620;3620;Fertigstellen, je Zahn;0;3,41;3,59
+3628;3628;Fertigstellen, je Zahn bei Implantatvers.;0;3,33;3,51
+3800;3800;Einfache gebog. Halte- und/oder Stützvorr.;0;10,24;10,78
+3805;3805;Gebogene Auflage;0;10,24;10,78
+3810;3810;Sonstige gebog. Halte- und/oder Stützvorr.;0;17,30;18,21
+3821;3821;Weichkunststoff (ZE);0;55,66;58,59
+3822;3822;Sonderkunststoff;0;55,66;58,59
+3830;3830;Zahn zahnfarben hergestellt;0;23,49;24,73
+3840;3840;Zahn zahnfarben hinterlegt;0;12,33;12,98
+4010;4010;Aufbissbehelf mit adjustierter Oberfläche;0;65,59;69,04
+4020;4020;Aufbissbehelf ohne adjustierte Oberfläche;0;54,11;56,96
+4030;4030;Umarbeiten zum Aufbissbehelf;0;48,26;50,80
+4040;4040;Semiperman. Schiene aus Metall, je Zahn;0;29,72;31,28
+7010;7010;Basis Einzelkiefergerät;0;50,35;53,00
+7020;7020;Basis bimaxilläres Gerät;0;87,89;92,52
+7030;7030;Schiefe Ebene;0;41,11;43,27
+7040;7040;Vorhofplatte;0;43,38;45,66
+7050;7050;Kinnkappe;0;49,00;51,58
+7100;7100;Aufbiss;0;9,22;9,70
+7110;7110;Abschirmelement;0;19,92;20,97
+7121;7121;Weichkunststoff (KFO);0;21,38;22,50
+7122;7122;Sonderkunststoff (KFO);0;21,38;22,50
+7200;7200;Schraube einarbeiten;0;15,28;16,08
+7210;7210;Spezialschraube einarbeiten;0;25,48;26,82
+7220;7220;Trennen einer Basis;0;6,73;7,08
+7300;7300;Labialbogen;0;18,30;19,26
+7310;7310;Labialbogen modifiziert;0;25,48;26,82
+7320;7320;Labialbogen intermaxillär;0;28,07;29,55
+7330;7330;Feder, offen;0;10,33;10,87
+7340;7340;Feder, geschlossen;0;14,01;14,75
+7400;7400;Verbindungselement/intra;0;20,43;21,50
+7410;7410;Verbindungselement/inter;0;25,48;26,82
+7420;7420;Verankerungselement;0;20,88;21,98
+7430;7430;Einzelelement einarbeiten;0;11,91;12,54
+7440;7440;Metallverbindung (KFO);0;8,68;9,14
+7500;7500;Einarmiges Halte-/Abstützelement;0;6,86;7,22
+7510;7510;Mehrarmiges Halte-/Abstützelement;0;10,28;10,82
+8010;8010;Grundeinheit Instandsetzung ZE;0;20,43;21,51
+8018;8018;Grundeinheit Instands. ZE/implantatgestü.;0;19,86;20,90
+8021;8021;LE Sprung;0;8,81;9,27
+8022;8022;LE Bruch;0;8,81;9,27
+8023;8023;LE Einarbeiten Zahn;0;8,81;9,27
+8024;8024;LE Basisteil Kunststoff;0;8,81;9,27
+8025;8025;LE Halte- und/oder Stützvorr. einarbeiten;0;8,81;9,27
+8026;8026;LE Rückenschutzplatte einarbeiten;0;8,81;9,27
+8027;8027;LE Kunststoffsattel;0;8,81;9,27
+8030;8030;Retention, gebogen;0;37,49;39,46
+8040;8040;Retention, gegossen;0;47,35;49,84
+8060;8060;Gegossenes Basisteil;0;73,33;77,19
+8070;8070;Metallverbind. b. Instandsetz./Erweiterung;0;19,20;20,21
+8080;8080;Teilunterfütterung einer Basis;0;36,77;38,71
+8088;8088;Teilunterfütterung/implantatgestützt;0;36,52;38,44
+8090;8090;Vollständige Unterfütterung;0;60,13;63,29
+8098;8098;Vollständige Unterfütterung/implantatgestü.;0;58,42;61,49
+8100;8100;Prothesenbasis erneuern;0;71,96;75,75
+8108;8108;Prothesenbasis erneuern bei Implantatvers.;0;71,48;75,24
+8130;8130;Auswechseln Konfektionsteil;0;12,62;13,28
+8200;8200;Instandsetzung Krone/Flügel/Brückenglied;0;36,99;38,94
+8208;8208;Instandsetzung Krone/implantatgestützt;0;36,75;38,68
+8610;8610;Grundeinheit/Instands. KFO o. Aufbissbehelf;0;15,37;16,18
+8620;8620;LE Einfügen Regulierungs- oder Halteelem.;0;6,56;6,91
+8630;8630;LE Erneuerung eines Elementes/intermax.;0;12,76;13,43
+8640;8640;KFO-Basis erneuern;0;61,15;64,37
+8700;8700;Remontieren KFO-Gerät;0;29,90;31,47
+9330;9330;Versandkostenpauschale;0;0,00;6,29
+9338;9338;Versandkosten bei Implantatversorgung;0;0,00;6,29
+9700;9700;Verarbeitungsaufwand NEM-Legierung;0;14,34;15,10
+0015;0015;Modell UKPS;0;6,92;7,28
+0025;0025;Doublieren Modell UKPS;0;14,30;15,05
+0115;0115;Fixator UKPS;0;8,97;9,44
+0125;0125;Mittelwertartikulator UKPS;0;10,17;10,71
+0217;0217;Individueller Löffel UKPS;0;23,51;24,75
+0205;0205;Vorbereiten Bissgabel UKPS;0;7,83;8,24
+9335;9335;Vesandkosten UKPS;0;0,00;6,28
+5010;5010;Basen für UKPS;0;265,76;279,75
+5020;5020;Vestibuläre Protrusionsgleitfläche UKPS;0;19,92;20,97
+5100;5100;Befestigungselement Protrusionselememt ;0;15,28;16,08
+5110;5110;Protrusionselement UKPS;0;15,28;16,08
+5200;5200;Befestigungselement Mundöffnungsbegrenzg. ;0;10,16;10,69
+5210;5210;einfaches gebogenes Halteelement UKPS;0;10,16;10,69
+8500;8500;Grundeinheit Instandsetzung/Erweiterung ;0;52,09;54,83
+8511;8511;LE Erneuerung Basen UKPS;0;132,90;139,89
+8512;8512;LE Sprung/Bruch UKPS;0;8,55;9,00
+8513;8513;LE Basisteil Kunststoff UKPS;0;8,55;9,00
+8514;8514;LE Halte- und/oder Stützvorrichtg. einarbeiten;0;8,55;9,00
+8085;8085;Teilunterfütterung Basis UKPS;0;36,53;38,45

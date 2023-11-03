@@ -9,9 +9,9 @@ $k.kzv|select Kurzname, PreisCSVLink | sort-object Kurzname |fl
 "Nach Kurzname sortiert mit CSV-Dateiname:"
 $k.kzv|select Kurzname, kzvnummer, @{N='CSVName';E={$_.PreisCSVLink.Segments[-1]}} | sort-object Kurzname |fl
 "Ausgabe der Preisseiten als Liste, nach Name sortiert:"
-$k.kzv|select kzvnummer, Name, HomepagePreise, HomepagePreiseErreichbar | sort-object Name | fl
+$k.kzv|select kzvnummer, Name, HomepagePreise, @{N='Erreichbar';E={$_.HomepagePreiseErreichbar()}} | sort-object Name | fl
 "Nach Kurzname Preise-Homepage erreichbar?:"
-$k.kzv|select kzvnummer, Name, HomepagePreiseErreichbar | sort-object Kurzname
+$k.kzv|select kzvnummer, Name, @{N='HPErreichbar';E={$_.HomepagePreiseErreichbar()}} | sort-object Kurzname
 
 # Preise können generell von KZV, Innung, oder Softwarehersteller kommen
 # in der Regel in der Form CSV-, PDF- oder Excel-Datei

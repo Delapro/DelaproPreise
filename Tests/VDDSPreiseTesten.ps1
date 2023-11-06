@@ -22,5 +22,9 @@ $k.kzv|select kzvnummer, Name, @{N='HPErreichbar';E={$_.HomepagePreiseErreichbar
 # eine bestimmte KZV auswählen
 $kzv = $k.kzv|where name -eq "Thüringen"
 
+""
+$PSVersionTable
+""
+
 "(Get-Host).Ui.RawUI:"
 (Get-host).ui.RawUI

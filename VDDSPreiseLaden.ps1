@@ -264,7 +264,7 @@ class KZVen {
 
         # KFO: https://www.kzv-sh.de/wp-content/uploads/2021/01/BEL-II-Preislisten-KFO-01.01.2021-Gewerbelabor.pdf
         $this.KZV[15] = [KZV]::new('Schleswig-Holstein', 'SHol', '36', 'https://www.kzv-sh.de/', 'https://www.kzv-sh.de/fuer-die-praxis/abrechnung/bel-ii/', 'https://www.kzv-sh.de/wp-content/uploads/2023/01/36la0123.csv', 'https://www.kzv-sh.de/wp-content/uploads/2022/12/BELII-2014_01-01-2023.pdf')
-        $this.KZV[16] = [KZV]::new('Thüringen', 'Thue', '55', 'https://www.kzvth.de/', 'https://www.kzvth.de/bel-beb', 'https://www.kzvth.de/services/asset/KZVTh/Downloadbereich/BEL/BEL%202022/55Ia0122.csv', 'https://www.kzvth.de/services/asset/KZVTh/Downloadbereich/BEL/BEL%202022/Bel_II_Kurzversion_ab_01012022_KZV.pdf')
+        $this.KZV[16] = [KZV]::new('Thüringen', 'Thue', '55', 'https://www.kzvth.de/', 'https://www.kzvth.de/bel-beb', 'https://www.kzvth.de/services/asset/KZVTh/Downloadbereich/BEL/BEL_2023/55la0123.csv', 'https://www.kzvth.de/services/asset/KZVTh/Downloadbereich/BEL/BEL_2023/BEL_II_Kurzversion_ab_01012023_KZV.pdf')
     }
 }
 

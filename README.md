@@ -30,3 +30,12 @@ Hinweis zum Bundesmittelpreis und der +/- 5 Prozentgeschichte, diese ist nur fü
 ## Preise von anderen Herstellern
 
 * [Dampsoft alle Bundesländer](https://www.dampsoft.de/service/laborpreise/)
+
+## Anwendung
+
+```Powershell
+# PS7 wird benötigt!
+$ScriptFromGitHub = Invoke-WebRequest https://raw.githubusercontent.com/Delapro/DelaproPreise/master/VDDSPreiseLaden.ps1 -UseBasicParsing
+If ($?) {Invoke-Expression $($ScriptFromGitHub.Content)}
+# nun stehen die Variablen und Funktionen zur Verfügung
+```

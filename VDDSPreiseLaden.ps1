@@ -257,7 +257,8 @@ class KZVen {
         
         # KFO: https://www.zahnaerzte-in-sachsen.de/fileadmin/Praxis/KZVS/Abrechnung/BEL_II/2021schnelluebersicht_laborpreise_paragraph_88.pdf
         # UKPS benötigt theoretisch weitere PDF, siehe: https://www.zahnaerzte-in-sachsen.de/fileadmin/Praxis/KZVS/Abrechnung/BEL_II/Preise_UKPS_2023.pdf
-        $this.KZV[13] = [KZV]::new('Sachsen', 'Sach', '56', 'https://www.zahnaerzte-in-sachsen.de/', 'https://www.zahnaerzte-in-sachsen.de/praxis/bema-abrechnung/allgemeine-abrechnungsinformationen/', 'https://www.zahnaerzte-in-sachsen.de/fileadmin/Praxis/KZVS/Abrechnung/BEL_II/56la0123.csv', 'https://www.zahnaerzte-in-sachsen.de/fileadmin/Praxis/KZVS/Abrechnung/BEL_II/preisliste_zt_paragraph57_2023.pdf', 'https://www.zahnaerzte-in-sachsen.de/fileadmin/Praxis/KZVS/Abrechnung/BEL_II/preisliste_zt_paragraph88_2023.pdf')
+        # §88: 'https://www.zahnaerzte-in-sachsen.de/fileadmin/Praxis/KZVS/Abrechnung/BEL_II/preisliste_zt_paragraph88_2023.pdf'
+        $this.KZV[13] = [KZV]::new('Sachsen', 'Sach', '56', 'https://www.zahnaerzte-in-sachsen.de/', 'https://www.zahnaerzte-in-sachsen.de/praxis/bema-abrechnung/allgemeine-abrechnungsinformationen/', 'https://www.zahnaerzte-in-sachsen.de/fileadmin/Praxis/KZVS/Abrechnung/BEL_II/56la0123.csv', 'https://www.zahnaerzte-in-sachsen.de/fileadmin/Praxis/KZVS/Abrechnung/BEL_II/preisliste_zt_paragraph57_2023.pdf')
 
         $this.KZV[14] = [KZV]::new('Sachsen-Anhalt', 'SaAn', '54', 'https://www.kzv-lsa.de/', 'https://www.kzv-lsa.de/f%C3%BCr-die-praxis/abrechnung/bel-liste.html', 'https://www.kzv-lsa.de/files/Inhalte/Abrechnung/BEL/2023/54la0123csv%20mitU.csv', 'https://www.kzv-lsa.de/files/Inhalte/Abrechnung/BEL/2023/HB_Fach_5.3_Hoechstpreisliste_2023.pdf')
         # Sachsen-Anhalt Homepage benötigt zwingend diesen Header:

@@ -56,6 +56,9 @@ $saPNeu = $saPreise| select -Property $VDDSHeaderConvert
 
 $saPNeu| measure -Property preisgewerbelabor -AllStats
 
+# Alternative wenn keine Kassenart mitangegeben wurde und allgemeinen Preisheader:
+$SaAn=Get-Content .\54la0124.csv|ConvertFrom-Csv -Delimiter ';' -Header @('belnr','nr','bez','p1','p2','p3','p4','p5','p6','p7','p8','p9','p10','p11')|select belnr, nr, bez, @{n='p1';e={[decimal]$_.p1.replace(',','.')}}, @{n='p2';e={[decimal]$_.p2.replace(',','.')}}, @{n='p3';e={[decimal]$_.p3.replace(',','.')}}, @{n='p4';e={[decimal]$_.p4.replace(',','.')}}, @{n='p5';e={[decimal]$_.p5.replace(',','.')}}, @{n='p6';e={[decimal]$_.p6.replace(',','.')}}, @{n='p7';e={[decimal]$_.p7.replace(',','.')}}, @{n='p8';e={[decimal]$_.p8.replace(',','.')}}, @{n='p9';e={[decimal]$_.p9.replace(',','.')}}, @{n='p10';e={[decimal]$_.p10.replace(',','.')}}, @{n='p11';e={[decimal]$_.p11.replace(',','.')}}
+
 # URL-Check der Homepage
 # alte Variante: $k.kzv|select kzvnummer, Name, Homepage, @{N='Erreichbar';E={(Invoke-WebRequest -Uri $_.Homepage -Headers $_.RequestHeaders).StatusCode -eq 200}} | sort kzvnummer
 $k.kzv|select kzvnummer, Name, Homepage, @{N='Erreichbar';E={$_.HomepageErreichbar()}} | sort kzvnummer

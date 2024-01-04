@@ -471,3 +471,8 @@ Function Get-PreiseFromDBF {
 # minimale Übersichtsliste über bestimmte Delapro-Preis-Positionen ausgeben
 # $BeispielNr=@('0010', '0120', '1200', '2010', '9330')
 # dir *.bel,*.kfo| % {"";"$($_.name):"; Get-PreiseFromDBF -Path $_| where {$BeispielNr -contains $_.BelNr}}
+
+# Übersichtsliste als Tabelle 0130 Modellpaar sockeln wurde mitaufgenommen, um eine gewisse Eindeutigkeit in 2024 zu haben
+# $BeispielNr=@('0010', '0120', '0130', '1200', '2010', '9330')
+# dir *.bel,*.kfo| % {$bl=$_.Name; $p=Get-PreiseFromDBF -Path $_| where {$BeispielNr -contains $_.BelNr}; [PSCustomObject]@{BL=$_.Name; Modell0010=$p[0].Preis; Mittel0120=$p[1].Preis; ModSock0130=$p[2].Preis; Teleskop1200=$p[3].Preis; MetallBasis2010=$p[4].Preis; Versand9330=$p[5].Preis}}|ft
+

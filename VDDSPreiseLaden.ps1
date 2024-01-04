@@ -466,5 +466,8 @@ Function Get-PreiseFromDBF {
 # dir *.bel,*.kfo| % {$p=Get-PreiseFromDBF -Path $_; $id=($p|measure -sum Preis).sum; "$($_.name) ID: $id" }
 
 # Preis-IDs aus Dampsoft-Preisdateien ermitteln
-dir *.dbf| % {$p=Get-PreiseFromDBF -Path $_; $id=($p|measure -sum FPreis).sum; "$($_.name) ID: $id" }
+# dir *.dbf| % {$p=Get-PreiseFromDBF -Path $_; $id=($p|measure -sum FPreis).sum; "$($_.name) ID: $id" }
 
+# minimale Übersichtsliste über bestimmte Delapro-Preis-Positionen ausgeben
+# $BeispielNr=@('0010', '0120', '1200', '2010', '9330')
+# dir *.bel,*.kfo| % {"";"$($_.name):"; Get-PreiseFromDBF -Path $_| where {$BeispielNr -contains $_.BelNr}}

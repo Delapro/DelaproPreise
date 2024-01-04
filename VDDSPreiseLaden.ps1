@@ -439,6 +439,22 @@ Function Get-Bel2Verzeichnis {
     
 }
 
+# öffnet eine beliebe DBF-Datei und gibt die kompletten Records als Objekt zurück
+Function Get-PreiseFromDBF {
+    [CmdletBinding()]
+    Param(
+        [string]$Path
+    )
+
+    $Path = Resolve-Path $Path
+    $Dbf = Use-DBF $Path
+    $Dbf.GoTop()
+    foreach($nr in $Dbf.ListAll()) {$Dbf.Goto($nr); New-Object PSObject -Property $Dbf.Fields }
+    $Dbf.Close()
+    
+}
+
+
 # $bel2006=Get-Bel2Verzeichnis .\Zahntechniker_LV_Bel_2_2006_2.pdf
 # $bel2014=Get-Bel2Verzeichnis .\33_BEL_II_-_2014.pdf
 # $bel2017=Get-Bel2Verzeichnis .\07-2017_BEL_II_-_2014.pdf

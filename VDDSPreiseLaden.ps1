@@ -464,6 +464,9 @@ Function Get-PreiseFromDBF {
 # $bel2022=Get-Bel2Verzeichnis .\BEL_II_01_01_2022.pdf
 # Compare-Bel2Verzeichnis $bel2020 $bel2022 | sort BelNummer
 
+# von allen CSV-Dateien die ersten 5 Zeilen ausgeben
+# dir *.csv | % {""; $_.name; get-content $_ | select -First 5}
+
 # Preis-IDs aus Delapro-Preisdateien ermitteln
 # dir *.bel,*.kfo| % {$p=Get-PreiseFromDBF -Path $_; $id=($p|measure -sum Preis).sum; "$($_.name) ID: $id" }
 

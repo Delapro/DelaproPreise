@@ -483,3 +483,7 @@ Function Get-PreiseFromDBF {
 # $bw24=Get-PreiseFromDBF -Path .\2024\BaWu.BEL
 # Compare-Bel2Verzeichnis -BelVz1 $bw24 -BelVz2 $bw23 -Property belnr
 
+# Beispiel für Delapro-Preisdaten von zwei verschiedenen Jahren vergleichen mit Ausgabe der Preisdifferenz in %
+# $bw23=Get-PreiseFromDBF -Path .\2023\BaWu.BEL
+# $bw24=Get-PreiseFromDBF -Path .\2024\BaWu.BEL
+# Compare-Bel2Verzeichnis -BelVz1 $bw24 -BelVz2 $bw23 -Property belnr|select belnummer, status, @{N='Preis1';E={$_.Diff[0].Preis}}, @{N='Preis2';E={$_.Diff[1].Preis}}, @{N='PreisDiff%';E={$_.Diff[1].Preis*100/$_.Diff[0].Preis-100}}|ft

@@ -38,4 +38,8 @@ Hinweis zum Bundesmittelpreis und der +/- 5 Prozentgeschichte, diese ist nur fü
 $ScriptFromGitHub = Invoke-WebRequest https://raw.githubusercontent.com/Delapro/DelaproPreise/master/VDDSPreiseLaden.ps1 -UseBasicParsing
 If ($?) {Invoke-Expression $($ScriptFromGitHub.Content)}
 # nun stehen die Variablen und Funktionen zur Verfügung
+
+# um DBF-Dateien verarbeiten zu können:
+$ScriptFromGitHub = Invoke-WebRequest https://raw.githubusercontent.com/Delapro/PSDBF/master/DBFReadWrite.PS1 -UseBasicParsing
+If ($?) {Invoke-Expression $($ScriptFromGitHub.Content)}
 ```

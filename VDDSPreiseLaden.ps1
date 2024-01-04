@@ -412,7 +412,7 @@ Function Compare-Bel2Verzeichnis {
     # identische Leistungen ermitteln
     $diff=diff $BelVz1 $BelVz2 -Property $Property
     foreach ($Leistung in $diff) {
-        If ($Leistung.SiteIndicator -eq '=>') {
+        If ($Leistung.SideIndicator -eq '=>') {
             [PSCustomObject]@{BelNummer=$Leistung.$Property;Status='-';Diff=$null}
         } else {
             [PSCustomObject]@{BelNummer=$Leistung.$Property;Status='+';Diff=$null}

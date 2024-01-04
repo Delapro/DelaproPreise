@@ -461,3 +461,10 @@ Function Get-PreiseFromDBF {
 # $bel2020=Get-Bel2Verzeichnis .\BEL_II_-_2014_-_ab_01.01.2020.pdf
 # $bel2022=Get-Bel2Verzeichnis .\BEL_II_01_01_2022.pdf
 # Compare-Bel2Verzeichnis $bel2020 $bel2022 | sort BelNummer
+
+# Preis-IDs aus Delapro-Preisdateien ermitteln
+# dir *.bel,*.kfo| % {$p=Get-PreiseFromDBF -Path $_; $id=($p|measure -sum Preis).sum; "$($_.name) ID: $id" }
+
+# Preis-IDs aus Dampsoft-Preisdateien ermitteln
+dir *.dbf| % {$p=Get-PreiseFromDBF -Path $_; $id=($p|measure -sum FPreis).sum; "$($_.name) ID: $id" }
+

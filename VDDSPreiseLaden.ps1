@@ -511,3 +511,11 @@ Function Get-PreiseFromDBF {
 # $by23=Get-PreiseFromDBF -Path .\2023\Baye.BEL
 # $by24=Get-PreiseFromDBF -Path .\2024\Baye.BEL
 # Compare-Bel2Verzeichnis -BelVz1 $by24 -BelVz2 $by23 -Property belnr -ExcludeBelNr 7330|select belnummer, status, @{N='Preis1';E={$_.Diff[0].Preis}}, @{N='Preis2';E={$_.Diff[1].Preis}}, @{N='PreisDiff%';E={$_.Diff[1].Preis*100/$_.Diff[0].Preis-100}}|measure PreisDiff% -AllStats
+
+# Beispiel für Delapro-Preisdaten und Ausgabe der Minimum und Maximum Veränderungen
+# $bw23=Get-PreiseFromDBF -Path .\2023\BaWu.BEL
+# $bw24=Get-PreiseFromDBF -Path .\2024\BaWu.BEL
+# $bwDiff=Compare-Bel2Verzeichnis -BelVz1 $bw24 -BelVz2 $bw23 -Property belnr |select belnummer, status, @{N='Preis1';E={$_.Diff[0].Preis}}, @{N='Preis2';E={$_.Diff[1].Preis}}, @{N='PreisDiff%';E={$_.Diff[1].Preis*100/$_.Diff[0].Preis-100}}
+# $minMax=$bwDiff|measure PreisDiff% -Minimum -Maximum
+# $bwDiff|where PreisDiff% -eq $minMax.Minimum
+# $bwDiff|where PreisDiff% -eq $minMax.Maximum

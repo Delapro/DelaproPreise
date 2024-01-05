@@ -401,6 +401,7 @@ Function ConvertFrom-BEL2Beschreibung {
 }
 
 # erlaubt das Vergleichen zweier Preislisten und gibt die Unterschiede zurück, wobei fehlende oder hinzugefügte Positionen, bzw. unterschiedliche Preise erkannt werden
+# Hinweis: Die Struktur der Rückgabe ist noch nicht optimal und könnte sich evtl. nochmal ändern
 Function Compare-Bel2Verzeichnis {
     [CmdletBinding()]
     Param(
@@ -410,12 +411,12 @@ Function Compare-Bel2Verzeichnis {
     )
 
     # identische Leistungen ermitteln
-    $diff=diff $BelVz1 $BelVz2 -Property $Property
+    $diff=diff $BelVz1 $BelVz2 -Property $Property -PassThru
     foreach ($Leistung in $diff) {
         If ($Leistung.SideIndicator -eq '=>') {
-            [PSCustomObject]@{BelNummer=$Leistung.$Property;Status='-';Diff=$null}
+            [PSCustomObject]@{BelNummer=$Leistung.$Property;Status='-';Diff=$Leistung}
         } else {
-            [PSCustomObject]@{BelNummer=$Leistung.$Property;Status='+';Diff=$null}
+            [PSCustomObject]@{BelNummer=$Leistung.$Property;Status='+';Diff=$Leistung}
         }
     }
     $beltemp=$BelVz2|where {$diff.$Property -NotContains $_.$Property}
@@ -425,9 +426,12 @@ Function Compare-Bel2Verzeichnis {
     foreach($Leistung in ($diffprop|select -Unique $Property)) {
         $l1 = $BelVz1|where { $_.$Property -eq $Leistung.$Property }
         $l2 = $beltemp|where { $_.$Property -eq $Leistung.$Property }
-        [PSCustomObject]@{BelNummer=$Leistung.$Property;Status='#';Diff=($Properties|% {diff $l1 $l2 -Property $_})}
+	If (($null -ne $l1) -and ($null -ne $l2)) {
+	        [PSCustomObject]@{BelNummer=$Leistung.$Property;Status='#';Diff=($Properties|% {diff $l1 $l2 -Property $_})}
+	}
     }
 }
+
 
 Function Get-Bel2Verzeichnis {
     Param(

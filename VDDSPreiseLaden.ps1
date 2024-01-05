@@ -494,3 +494,8 @@ Function Get-PreiseFromDBF {
 # $bw23=Get-PreiseFromDBF -Path .\2023\BaWu.BEL
 # $bw24=Get-PreiseFromDBF -Path .\2024\BaWu.BEL
 # Compare-Bel2Verzeichnis -BelVz1 $bw24 -BelVz2 $bw23 -Property belnr|select belnummer, status, @{N='Preis1';E={$_.Diff[0].Preis}}, @{N='Preis2';E={$_.Diff[1].Preis}}, @{N='PreisDiff%';E={$_.Diff[1].Preis*100/$_.Diff[0].Preis-100}}|ft
+# obige Ausgabe funktioniert tadellos bei homogenen, sich nahestehenden Listen wie z. B. 2023 und 2024, wenn allerdings 2024 mit 2012 verglichen wird, kommt es zu aussetzern bei der Berechnung der Nummern 3805, 2041, 2031 und 2021, weil deren Texte sich zusätzlich geändert haben!
+# 
+# Ausgabe einer Übersicht der durchschnittlichen Preiserhöhung sowie Minimum- und Maximumwerte
+# Compare-Bel2Verzeichnis -BelVz1 $bw24 -BelVz2 $bw23 -Property belnr|select belnummer, status, @{N='Preis1';E={$_.Diff[0].Preis}}, @{N='Preis2';E={$_.Diff[1].Preis}}, @{N='PreisDiff%';E={$_.Diff[1].Preis*100/$_.Diff[0].Preis-100}}|measure PreisDiff% -AllStats
+

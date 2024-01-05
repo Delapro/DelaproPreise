@@ -402,13 +402,22 @@ Function ConvertFrom-BEL2Beschreibung {
 
 # erlaubt das Vergleichen zweier Preislisten und gibt die Unterschiede zurück, wobei fehlende oder hinzugefügte Positionen, bzw. unterschiedliche Preise erkannt werden
 # Hinweis: Die Struktur der Rückgabe ist noch nicht optimal und könnte sich evtl. nochmal ändern
+# mittels ExcludeBelNr kann ein Array von BelNummern übergeben werden, welche aus dem Vergleich herausgenommen wird
 Function Compare-Bel2Verzeichnis {
     [CmdletBinding()]
     Param(
         $BelVz1,
         $BelVz2,
-	$Property='BelNummer'
+	$Property='BelNummer',
+	[String[]]$ExcludeBelNr
     )
+
+    #
+    If ($null -ne [String[]]$ExcludeBelNr) {
+	# unerwünschte Nummern vorab herausnehmen
+	$BelVz1 = $BelVz1 | where {$ExcludeBelNr -notcontains $_.$Property}
+	$BelVz2 = $BelVz2 | where {$ExcludeBelNr -notcontains $_.$Property}
+    }
 
     # identische Leistungen ermitteln
     $diff=diff $BelVz1 $BelVz2 -Property $Property -PassThru
@@ -431,7 +440,6 @@ Function Compare-Bel2Verzeichnis {
 	}
     }
 }
-
 
 Function Get-Bel2Verzeichnis {
     Param(
@@ -499,3 +507,7 @@ Function Get-PreiseFromDBF {
 # Ausgabe einer Übersicht der durchschnittlichen Preiserhöhung sowie Minimum- und Maximumwerte
 # Compare-Bel2Verzeichnis -BelVz1 $bw24 -BelVz2 $bw23 -Property belnr|select belnummer, status, @{N='Preis1';E={$_.Diff[0].Preis}}, @{N='Preis2';E={$_.Diff[1].Preis}}, @{N='PreisDiff%';E={$_.Diff[1].Preis*100/$_.Diff[0].Preis-100}}|measure PreisDiff% -AllStats
 
+# Bayern hatte in 2024 die Position 7330, die brachte die allgemeine Statistik durch einen massiven Ausreiser etwas durcheinander, deshalb kann man mittels ExcludeBelNr solche Positionen aus dem Vergleich nehmen
+# $by23=Get-PreiseFromDBF -Path .\2023\Baye.BEL
+# $by24=Get-PreiseFromDBF -Path .\2024\Baye.BEL
+# Compare-Bel2Verzeichnis -BelVz1 $by24 -BelVz2 $by23 -Property belnr -ExcludeBelNr 7330|select belnummer, status, @{N='Preis1';E={$_.Diff[0].Preis}}, @{N='Preis2';E={$_.Diff[1].Preis}}, @{N='PreisDiff%';E={$_.Diff[1].Preis*100/$_.Diff[0].Preis-100}}|measure PreisDiff% -AllStats

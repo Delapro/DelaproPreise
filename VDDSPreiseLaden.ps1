@@ -468,6 +468,40 @@ Function Get-PreiseFromDBF {
     
 }
 
+# Versuch alle Laborpreisdateien von Dampsoft zu laden und automatisch in Jahresverzeichnisse zu legen
+# klappt nicht ganz, da das DBF-Header-Datum anscheinend nicht 100% passt
+# die Routine berücksichtigt auch noch nicht mehrere Preisupdates in einem Jahr
+# der Dateiname besteht aus LAPR und dann des zweistelligen KZV-Bereichs
+# teilweise haben die Dateien die Endung e sind evtl. KFO-Dateien?
+Function Download-DampSoftLaborPreise {
+	$id=2
+	while ($id -lt 403)
+	{
+		$id
+		$url="https://www.dampsoft.de/wp-content/plugins/dampsoftplugin/classes/labor/labdown.php?id=$id"
+		$erg = $false
+		try {
+			$r=Invoke-WebRequest $url -UseBasicParsing
+			$erg = $r.StatusCode -eq 200
+		} catch {
+			$erg = $false
+		}
+		If ($erg) {
+			$disposition = [System.Net.Mime.ContentDisposition]::new($r.Headers.'Content-Disposition')
+		        $filename = $disposition.Parameters['filename']
+			$r.Content | Set-Content test.dbf -AsByteStream
+			$t = Use-DBF (Resolve-Path .\test.dbf)
+			$year="20$($t.Header.LastUpdate.Year.ToString().SubString(2))"
+			$t.Close()
+			If (-Not (Test-Path -PathType Container -Path $year)) {
+				New-Item -ItemType Directory -Path $year
+			}
+			$r.Content | Set-Content "$year\$($filename)" -AsByteStream
+		}
+		$id++
+	}
+}
+
 
 # $bel2006=Get-Bel2Verzeichnis .\Zahntechniker_LV_Bel_2_2006_2.pdf
 # $bel2014=Get-Bel2Verzeichnis .\33_BEL_II_-_2014.pdf

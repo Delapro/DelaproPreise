@@ -176,7 +176,8 @@ class KZV {
         [bool]$erg = $false;
 
         try {
-            $erg = (Invoke-WebRequest -Uri $this.Homepage -Headers $this.RequestHeaders).StatusCode -eq [System.Net.HttpStatusCode]::OK  # Statuscode 200
+            # -allowInsecureRedirect muss momentan (2024) für Sachsen-Anhalt sein
+            $erg = (Invoke-WebRequest -Uri $this.Homepage -Headers $this.RequestHeaders -allowInsecureRedirect).StatusCode -eq [System.Net.HttpStatusCode]::OK  # Statuscode 200
         } catch {
             $erg = $false
         }

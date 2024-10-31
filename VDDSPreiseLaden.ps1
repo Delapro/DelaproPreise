@@ -176,7 +176,7 @@ class KZV {
         [bool]$erg = $false;
 
         try {
-            $erg = (Invoke-WebRequest -Uri $this.Homepage -Headers $this.RequestHeaders).StatusCode -eq 200
+            $erg = (Invoke-WebRequest -Uri $this.Homepage -Headers $this.RequestHeaders).StatusCode -eq [System.Net.HttpStatusCode]::OK  # Statuscode 200
         } catch {
             $erg = $false
         }
@@ -188,7 +188,7 @@ class KZV {
 
         if ($this.HomepagePreise) {
             try {
-                $erg = (Invoke-WebRequest -Uri $this.HomepagePreise -Headers $this.RequestHeaders).StatusCode -eq 200
+                $erg = (Invoke-WebRequest -Uri $this.HomepagePreise -Headers $this.RequestHeaders).StatusCode -eq [System.Net.HttpStatusCode]::OK  # Statuscode 200
             } catch {
                 $erg = $false
             }
@@ -486,7 +486,7 @@ Function Download-DampSoftLaborPreise {
 		$erg = $false
 		try {
 			$r=Invoke-WebRequest $url -UseBasicParsing
-			$erg = $r.StatusCode -eq 200
+			$erg = $r.StatusCode -eq [System.Net.HttpStatusCode]::OK  # Statuscode 200
 		} catch {
 			$erg = $false
 		}

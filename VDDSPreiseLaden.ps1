@@ -552,6 +552,27 @@ Function Download-DampSoftLaborPreise {
 # Ausgabe einer Übersicht der durchschnittlichen Preiserhöhung sowie Minimum- und Maximumwerte
 # Compare-Bel2Verzeichnis -BelVz1 $bw24 -BelVz2 $bw23 -Property belnr|select belnummer, status, @{N='Preis1';E={$_.Diff[0].Preis}}, @{N='Preis2';E={$_.Diff[1].Preis}}, @{N='PreisDiff%';E={$_.Diff[1].Preis*100/$_.Diff[0].Preis-100}}|measure PreisDiff% -AllStats
 
+# einfaches Format um bestimmte Positionen zu ermitteln, kann z. B. für PREISUPD.LOG verwendet werden, wenn gelöschte Positionen gemeldet werden 
+# #$DLPPath\PreisUPD.LOG
+# ...
+# Temporärer Index erzeugt
+# Preisliste .\Baye.BEL ge”ffnet
+# LV-Update .\LVUPD\ARTIKEL als Alias ArtUpd ge”ffnet
+# LV-Update .\LVUPD\ARTIKEL.cdx Index aufgebaut
+# Position für Preis von 202700BEL2 nicht gefunden
+# Position für Preis von 302800BEL2 nicht gefunden
+# Position für Preis von 402000BEL2 nicht gefunden
+# Position für Preis von 711000BEL2 nicht gefunden
+# Preise für Bayern wurden in Spalte 1 Preisliste 1  eingetragen!
+# ...
+# $GelöschteNr=@('2027', '3028', '4020', '7110')
+# dir .\Baye.BEL | % {$bl=$_.Name; $dbf=$_; $p=Get-PreiseFromDBF -Path $dbf | where {$GelöschteNr -contains $_.BelNr}; $p | % {[PSCustomObject]@{BL=$bl; BelNr=$_.BelNr; Text=$_.Text; Preis=$_.Preis}}}|ft
+#
+# fertige Lösung für Log-Datei
+# $regMatch=Select-String -Path .\preisupd.log -Pattern 'Position für Preis von (?<Bel2Nr>\d{4})00BEL2 nicht gefunden'
+# $GelöschteNr = $regMatch.Matches| select -ExpandProperty Groups | where name -eq Bel2Nr |select -ExpandProperty value
+# dir .\Baye.BEL | % {$bl=$_.Name; $dbf=$_; $p=Get-PreiseFromDBF -Path $dbf | where {$GelöschteNr -contains $_.BelNr}; $p | % {[PSCustomObject]@{BL=$bl; BelNr=$_.BelNr; Text=$_.Text; Preis=$_.Preis}}}|ft
+
 # Bayern hatte in 2024 die Position 7330, die brachte die allgemeine Statistik durch einen massiven Ausreiser etwas durcheinander, deshalb kann man mittels ExcludeBelNr solche Positionen aus dem Vergleich nehmen
 # $by23=Get-PreiseFromDBF -Path .\2023\Baye.BEL
 # $by24=Get-PreiseFromDBF -Path .\2024\Baye.BEL

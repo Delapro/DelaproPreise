@@ -530,7 +530,13 @@ Function Download-DampSoftLaborPreise {
 
 # Übersichtsliste als Tabelle 0130 Modellpaar sockeln wurde mitaufgenommen, um eine gewisse Eindeutigkeit in 2024 zu haben
 # $BeispielNr=@('0010', '0120', '0130', '1200', '2010', '9330')
+# function Get-PreisID {$p=Get-PreiseFromDBF -Path $_; ($p|measure -sum Preis).sum}
 # dir *.bel,*.kfo| % {$bl=$_.Name; $p=Get-PreiseFromDBF -Path $_| where {$BeispielNr -contains $_.BelNr}; [PSCustomObject]@{BL=$_.Name; Modell0010=$p[0].Preis; Mittel0120=$p[1].Preis; ModSock0130=$p[2].Preis; Teleskop1200=$p[3].Preis; MetallBasis2010=$p[4].Preis; Versand9330=$p[5].Preis}}|ft
+
+# Übersichtsliste als Tabelle 0130 Modellpaar sockeln wurde mitaufgenommen, um eine gewisse Eindeutigkeit in 2024 zu haben
+# $BeispielNr=@('0010', '0120', '0130', '1200', '2010', '9330')
+# function Get-PreisID {Param([String]$DBFPath) $p=Get-PreiseFromDBF -Path $DBFPath; ($p|measure -sum Preis).sum}
+# dir *.bel,*.kfo| % {$bl=$_.Name; $dbf=$_; $p=Get-PreiseFromDBF -Path $dbf | where {$BeispielNr -contains $_.BelNr}; [PSCustomObject]@{BL=$_.Name; Modell0010=$p[0].Preis; Mittel0120=$p[1].Preis; ModSock0130=$p[2].Preis; Teleskop1200=$p[3].Preis; MetallBasis2010=$p[4].Preis; Versand9330=$p[5].Preis; PreisId=Get-PreisID $dbf }}|ft
 
 # Beispiel für Delapro-Preisdaten von zwei verschiedenen Jahren vergleichen
 # $bw23=Get-PreiseFromDBF -Path .\2023\BaWu.BEL

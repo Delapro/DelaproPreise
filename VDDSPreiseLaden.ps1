@@ -234,7 +234,7 @@ class KZVen {
 
         # TODO: Verweise auf CSV- und PDF-Preislisten entkoppeln, damit die Jahre zugeordnet werden können
         # TODO: Splitting von CSV- und PDF-Preislisten nach ZE und KFO vorsehen, z. B. hat Bayern in 2020 zwei PDF-Dateien obwohl nur eine CSV
-        $this.KZV[0] = [KZV]::new('Baden-Württemberg', 'BaWu', '02', 'https://www.kzvbw.de/', 'https://www.kzvbw.de/zahnaerzte/abrechnung/punktwerte-formulare-vordrucke/bel-leistungen-download/', 'https://www.kzvbw.de/wp-content/uploads/02la0124.csv', 'https://www.kzvbw.de/wp-content/uploads/BEL-Preisliste-2024_Gewerbe-und-Praxislabor_Uebersicht.pdf')
+        $this.KZV[0] = [KZV]::new('Baden-Württemberg', 'BaWu', '02', 'https://www.kzvbw.de/', 'https://www.kzvbw.de/zahnaerzte/abrechnung/punktwerte-formulare-vordrucke/bel-leistungen-download/', 'https://www.kzvbw.de/wp-content/uploads/02la0225.csv', 'https://www.kzvbw.de/wp-content/uploads/BEL-Preisliste-2025_Gewerbe-und-Praxislabor_Uebersicht.pdf')
 
         # KFO: https://www.kzvb.de/fileadmin/user_upload/Abrechnung/BEL/BEL_Preise_KFO_KB_012021.pdf
         $this.KZV[1] = [KZV]::new('Bayern', 'Baye', '11', 'https://www.kzvb.de/', 'https://www.kzvb.de/abrechnung/bel-preise', 'https://www.kzvb.de/fileadmin/user_upload/Abrechnung/BEL/11la0124.csv', 'https://www.kzvb.de/fileadmin/user_upload/Abrechnung/BEL/BEL-Preise_ZE_2024.pdf')

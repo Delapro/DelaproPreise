@@ -23,6 +23,7 @@ relevante Links:
 * [Schreiben BMG Veränderungsrate für 2023 (3,45%)](https://www.bundesanzeiger.de/pub/publication/bxPTMExTJfsRp5Xekuz/content/bxPTMExTJfsRp5Xekuz/BAnz%20AT%2009.09.2022%20B2.pdf?inline)
 * [Schreiben BMG Veränderungsrate für 2024 (4,22%)](https://www.bundesanzeiger.de/pub/publication/XyRYyeyeELIFubt7MQ9/content/XyRYyeyeELIFubt7MQ9/BAnz%20AT%2015.09.2023%20B3.pdf?inline)
 * [Schreiben BMG Veränderungsrate für 2025 (4,41%)](https://www.bundesgesundheitsministerium.de/fileadmin/Dateien/3_Downloads/Statistiken/GKV/Kennzahlen_Daten/24Sep_13_Bekanntmachung_Internet_2024.pdf).
+* [Schreiben BMG Veränderungsrate für 2026 (5,17%)](https://www.bundesgesundheitsministerium.de/fileadmin/Dateien/3_Downloads/Statistiken/GKV/Kennzahlen_Daten/25Sep09_Bekanntmachung_Internet_2025.pdf).
 
 Hinweis zum Bundesmittelpreis und der +/- 5 Prozentgeschichte, diese ist nur für Regelleistungen nach §57 definiert (https://www.gesetze-im-internet.de/sgb_5/__57.html), bei Schienen usw. nach §88 gilt die 5%-Klausel nicht (https://www.gesetze-im-internet.de/sgb_5/__88.html). Aus diesem Grund sind bei den Bundesmittelpreislisten auch keine Schienen usw. aufgeführt.
 

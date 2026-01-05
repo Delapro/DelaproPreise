@@ -473,6 +473,41 @@ Function Get-PreiseFromDBF {
     
 }
 
+# öffnet eine Delapro-Preisupdate-EXE und entpackt die Dateien, damit man anschließend auf die Preisdateien zugreifen kann, dabei werden die Preisdateien ins aktuelle Verzeichnis kopiert
+Function Get-DlpPreiseFromEXE {
+    [CmdletBinding()]
+    Param(
+        [string]$Path
+    )
+
+	# zuerst abchecken ob 7z verfügbar ist
+	7z.exe | Out-Null
+	If ($?) {
+		# jetzt die Preisexe abchecken, ob vorhanden
+		If (Test-Path $Path -PathType Leaf) {
+			# jetzt noch abchecken, ob es sich wirklich um ein Preisupdate handelt
+			$fileInfo = Dir $Path
+			If ($fileInfo.VersionInfo.FileDescription.Contains('Delapro-Preisupdate')) {
+				# temporäres Verzeichnis anlegen
+				$temp = $dir = Join-Path $env:TEMP ([System.IO.Path]::GetRandomFileName())
+				Write-Verbose "TempDir: $temp"
+				New-Item -ItemType Directory -Path $dir -Force | Out-Null
+				# 7z aufrufen zum Entpacken
+				$p=Start-Process -FilePath '7z.exe' -Argumentlist @('e', "`"$Path`"") -WorkingDirectory $temp -PassThru -NoNewWindow
+				# $p.hasExited
+				# Start-Sleep -Seconds 1
+				$p.WaitForExit()
+				Copy-Item -Path "$($temp)\*.bel"
+				Copy-Item -Path "$($temp)\*.kfo"
+				Copy-Item -Path "$($temp)\PREIPROT.DOC"
+				Rename-Item -Path ".\PREIPROT.DOC" -NewName $fileInfo.VersionInfo.FileDescription
+				$p| Stop-Process
+				Remove-Item $temp -Force -Recurse
+			}
+		}
+	}
+}
+
 # Versuch alle Laborpreisdateien von Dampsoft zu laden und automatisch in Jahresverzeichnisse zu legen
 # klappt nicht ganz, da das DBF-Header-Datum anscheinend nicht 100% passt
 # die Routine berücksichtigt auch noch nicht mehrere Preisupdates in einem Jahr

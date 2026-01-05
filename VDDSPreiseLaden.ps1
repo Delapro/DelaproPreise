@@ -480,6 +480,7 @@ Function Get-DlpPreiseFromEXE {
         [string]$Path
     )
 
+	$Path = Resolve-Path $Path
 	# zuerst abchecken ob 7z verfügbar ist
 	7z.exe | Out-Null
 	If ($?) {
@@ -497,14 +498,20 @@ Function Get-DlpPreiseFromEXE {
 				# $p.hasExited
 				# Start-Sleep -Seconds 1
 				$p.WaitForExit()
-				Copy-Item -Path "$($temp)\*.bel"
-				Copy-Item -Path "$($temp)\*.kfo"
-				Copy-Item -Path "$($temp)\PREIPROT.DOC"
-				Rename-Item -Path ".\PREIPROT.DOC" -NewName $fileInfo.VersionInfo.FileDescription
+				Copy-Item -Path "$($temp)\*.bel" -Force
+				Copy-Item -Path "$($temp)\*.kfo" -Force
+				Copy-Item -Path "$($temp)\PREIPROT.DOC" -Force
+				Rename-Item -Path ".\PREIPROT.DOC" -NewName $fileInfo.VersionInfo.FileDescription -Force
 				$p| Stop-Process
 				Remove-Item $temp -Force -Recurse
+			} else {
+				throw 'Bei der angegebenen Datei $path handelt es sich um kein Delapro-Preisupdate'
 			}
+		} else {
+			throw '$path wurde nicht gefunden'
 		}
+	} else {
+		throw '7z.exe scheint nicht verfügbar zu sein'
 	}
 }
 
@@ -572,6 +579,9 @@ Function Download-DampSoftLaborPreise {
 # $BeispielNr=@('0010', '0120', '0130', '1200', '2010', '9330')
 # function Get-PreisID {Param([String]$DBFPath) $p=Get-PreiseFromDBF -Path $DBFPath; ($p|measure -sum Preis).sum}
 # dir *.bel,*.kfo| % {$bl=$_.Name; $dbf=$_; $p=Get-PreiseFromDBF -Path $dbf | where {$BeispielNr -contains $_.BelNr}; [PSCustomObject]@{BL=$_.Name; Modell0010=$p[0].Preis; Mittel0120=$p[1].Preis; ModSock0130=$p[2].Preis; Teleskop1200=$p[3].Preis; MetallBasis2010=$p[4].Preis; Versand9330=$p[5].Preis; PreisId=Get-PreisID $dbf }}|ft
+
+# Beispiel wie man aus einem Preisupdate die Preisdateien extrahieren kann, 7z muss vorhanden sein!
+# Get-DlpPreiseFromEXE -Path '.\dlppreise2026-1.exe' -Verbose
 
 # Beispiel für Delapro-Preisdaten von zwei verschiedenen Jahren vergleichen
 # $bw23=Get-PreiseFromDBF -Path .\2023\BaWu.BEL

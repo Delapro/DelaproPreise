@@ -1,5 +1,7 @@
 # DelaproPreise
-Routinen für BEL-II Preise, zum Importieren, Exportieren und Preisupdates erstellen fürs Delapro usw.
+PowerShell-Tools zum Laden, Prüfen, Importieren und Exportieren von BEL-II-Laborpreislisten der deutschen Kassenzahnärztlichen Vereinigungen (KZVen).
+
+Das Repository unterstützt Preisupdates für Delapro und verarbeitet insbesondere VDDS-konforme CSV-Dateien der KZVen sowie ergänzende PDF-Preislisten. Enthalten sind Routinen zur Aktualisierung von Bundesmittelpreisen, Landespreislisten und Delapro-Preisdateien.
 
 ## Bundesmittelpreis
 relevante Links:

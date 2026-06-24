@@ -31,6 +31,6 @@ jobs:
           $myWidth = 4096
           $PSDefaultParameterValues['Out-String:Width'] = $myWidth
           $PSStyle.OutputRendering = 'PlainText'
-          . ./VDDSPreiseLaden.ps1 6>&1 | Out-String -Width $myWidth
-          ./Tests/VDDSPreiseTesten.ps1 6>&1 | Out-String -Width $myWidth
+          . ./VDDSPreiseLaden.ps1 6>&1 | Out-String -Width $myWidth -Stream
+          ./Tests/VDDSPreiseTesten.ps1 6>&1 | Out-String -Width $myWidth -Stream
         shell: pwsh

@@ -1,9 +1,11 @@
 # DelaproPreise
+
 PowerShell-Tools zum Laden, Prüfen, Importieren und Exportieren von BEL-II-Laborpreislisten der deutschen Kassenzahnärztlichen Vereinigungen (KZVen).
 
 Das Repository unterstützt Preisupdates für Delapro und verarbeitet insbesondere VDDS-konforme CSV-Dateien der KZVen sowie ergänzende PDF-Preislisten. Enthalten sind Routinen zur Aktualisierung von Bundesmittelpreisen, Landespreislisten und Delapro-Preisdateien.
 
 ## Bundesmittelpreis
+
 relevante Links:
 * [Bundesmittelpreise 2014-2023](https://www.gkv-spitzenverband.de/krankenversicherung/zahnaerztliche_versorgung/zahntechniker/zahntechniker.jsp)
 * [Bundesmittelpreis 2023](https://www.zahnaerzte-wl.de/download/3d23f31e5744612155e826352/gkv_vdzi_preiserhoehungen_ab_januar_2023.pdf)
